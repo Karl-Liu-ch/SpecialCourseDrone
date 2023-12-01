@@ -1,106 +1,64 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <SimscapeMultibodyImportXML version="2.0" xmlns="urn:mathworks:SimscapeMultibody:import" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<Created by="" on="12/01/23||15:25:53" using="Simscape Multibody Link Version 7.4" from="SolidWorks 31.2.1"/>
+<Created by="" on="12/01/23||20:26:43" using="Simscape Multibody Link Version 7.4" from="SolidWorks 31.2.1"/>
 <ModelUnits mass="kilogram" length="millimeter"/>
 <DataUnits mass="kilogram" length="meter"/>
-<RootAssembly name="drone" uid="drone" version="171">
+<RootAssembly name="drone" uid="drone" version="175">
 <AssemblyFile name="drone.SLDASM" type="SolidWorks Assembly"/>
 <InstanceTree>
-<Instance name="2826motor_drone_2-16" uid="2826motor_drone_2-16" entityUid="2826motor_drone_2*:*Default">
-<Transform>
-<Rotation>1 2.0000000000000002e-15 0 0 -3.8830000000000003e-12 1 2.0000000000000002e-15 -1 -3.8830000000000003e-12</Rotation>
-<Translation>-0.10487369058454496 0.17931159778159789 0.36643578332021343</Translation>
-</Transform>
-</Instance>
-<Instance name="2826motor_drone_2-17" uid="2826motor_drone_2-17" entityUid="2826motor_drone_2*:*Default">
-<Transform>
-<Rotation>1 3.4577279152368522e-15 2.3212518040918666e-15 -2.7275844885336938e-15 0.12257678402663136 0.99245903291656756 3.1471217217829947e-15 -0.99245903291656756 0.12257678402663136</Rotation>
-<Translation>-0.10487369058446863 0.1791622866343538 0.62886280364381697</Translation>
-</Transform>
-</Instance>
-<Instance name="9x4.7V3_drone_2-11" uid="9x4.7V3_drone_2-11" entityUid="9x4.7V3_drone_2*:*Default">
-<Transform>
-<Rotation>0.82291031858635433 1.7978773740000746e-15 -0.56817128364966207 -0.069644608726060042 0.99245903291656756 -0.10086970039464498 0.56388672270190832 0.1225767840266314 0.8167047789612778</Rotation>
-<Translation>0.25317080870047171 0.21234722491585462 0.6269481527079247</Translation>
-</Transform>
-</Instance>
-<Instance name="9x4.7V3_drone_2-12" uid="9x4.7V3_drone_2-12" entityUid="9x4.7V3_drone_2*:*Default">
-<Transform>
-<Rotation>-0.92348764094910463 -1.978834901788448e-15 0.38362817546976069 -0.047023908011085559 -0.99245903291656767 -0.11319814511588216 0.38073524802626618 -0.12257678402663107 0.91652365104675082</Rotation>
-<Translation>0.25828596055349506 0.10807277104598022 0.61461403604458198</Translation>
-</Transform>
-</Instance>
-<Instance name="2826motor_drone_2-14" uid="2826motor_drone_2-14" entityUid="2826motor_drone_2*:*Default">
-<Transform>
-<Rotation>-1 2.4328519681711125e-14 -1.391272401014056e-15 4.3628925643466738e-15 0.12257678402663136 -0.99245903291656756 -2.3974521418981367e-14 -0.99245903291656756 -0.12257678402663136</Rotation>
-<Translation>0.25512630941551551 0.13986090893085515 0.62400876299636998</Translation>
-</Transform>
-</Instance>
-<Instance name="9x4.7V3_drone_2-13" uid="9x4.7V3_drone_2-13" entityUid="9x4.7V3_drone_2*:*Default">
-<Transform>
-<Rotation>-0.99582073185325148 -2.5927827233247164e-16 0.091329458616891943 3.5489265422278326e-13 -1 3.8667719017861895e-12 0.091329458616891943 3.8830237791235902e-12 0.99582073185325148</Rotation>
-<Translation>0.25975836113197698 0.10701159778158187 0.36219501724636716</Translation>
-</Transform>
-</Instance>
-<Instance name="2826motor_drone_2-12" uid="2826motor_drone_2-12" entityUid="2826motor_drone_2*:*Default">
-<Transform>
-<Rotation>-1 8.0000000000000006e-15 0 0 -3.8830000000000003e-12 -1 -8.0000000000000006e-15 -1 3.8830000000000003e-12</Rotation>
-<Translation>0.25512630941545233 0.13971159778159839 0.36643578332036841</Translation>
-</Transform>
-</Instance>
-<Instance name="9x4.7V3_drone_2-14" uid="9x4.7V3_drone_2-14" entityUid="9x4.7V3_drone_2*:*Default">
-<Transform>
-<Rotation>-0.31208042154299348 2.2376685051554255e-16 0.95005568809914909 3.6886453535228029e-12 -1 1.2119055526146768e-12 0.95005568809914909 3.8826304952251188e-12 0.31208042154299348</Rotation>
-<Translation>-0.10692350009160675 0.10701159778157528 0.36049959927813496</Translation>
-</Transform>
-</Instance>
-<Instance name="moveableprop_2-1" uid="moveableprop_2-1" entityUid="moveableprop_2" rigid="true">
-<Transform>
-<Rotation>0.98498655123927825 0.12139442660311285 -0.12273910162394877 0.062779656545806917 0.41041996411521753 0.90973302005569434 0.16081109601561425 -0.90378030861784397 0.39663704460487798</Rotation>
-<Translation>0.17371634618289755 0.29926605585280042 0.74606321285263755</Translation>
-</Transform>
-<Instance name="carbontube400mm_2-1" uid="carbontube400mm_2-1" grounded="true" entityUid="carbontube400mm_2*:*Default">
-<Transform>
-<Rotation>-0.9849865512392787 -0.10369951812718839 0.13801414354311883 -0.12139442660311099 -0.15234759438158099 -0.98084331249993606 0.12273910162394694 -0.98287161950395863 0.13747178803744506</Rotation>
-<Translation>-0.12512101523709201 0.038790614533820156 -0.16248706276801606</Translation>
-</Transform>
-</Instance>
-<Instance name="Motor_2-3" uid="Motor_2-3" grounded="true" entityUid="Motor_2*:*Default">
-<Transform>
-<Rotation>-0.98498655123927836 0.15190309643222755 0.082017944207678301 -0.12139442660311209 -0.94727289036147166 0.2965425169784679 0.12273910162394903 0.28213386978617905 0.95149124665023654</Rotation>
-<Translation>-0.302418594460162 0.016939617745258984 -0.14039402447570504</Translation>
-</Transform>
-</Instance>
-<Instance name="Motor_2-2" uid="Motor_2-2" grounded="true" entityUid="Motor_2*:*Default">
-<Transform>
-<Rotation>-0.98498655123927836 0.15190309643222755 0.082017944207678301 -0.12139442660311209 -0.94727289036147166 0.2965425169784679 0.12273910162394903 0.28213386978617905 0.95149124665023654</Rotation>
-<Translation>0.052176563985977975 0.060641611322380051 -0.18458010106032707</Translation>
-</Transform>
-</Instance>
-<Instance name="Gear48T_2-1" uid="Gear48T_2-1" grounded="true" entityUid="Gear48T_2*:*Default">
-<Transform>
-<Rotation>-0.082017944207677981 -0.15190309643222788 0.98498655123927825 -0.29654251697847084 0.94727289036147067 0.12139442660311212 -0.95149124665023566 -0.28213386978618199 -0.12273910162394919</Rotation>
-<Translation>-0.13891082695451401 0.037091092561348016 -0.16076871534523202</Translation>
-</Transform>
-</Instance>
-</Instance>
-<Instance name="2826motor_drone_2-11" uid="2826motor_drone_2-11" entityUid="2826motor_drone_2*:*Default">
-<Transform>
-<Rotation>1 -1.1999999999999999e-14 0 0 -3.8830000000000003e-12 1 -1.1999999999999999e-14 -1 -3.8830000000000003e-12</Rotation>
-<Translation>0.25512630941546244 0.17931159778159836 0.3664357833202076</Translation>
-</Transform>
-</Instance>
-<Instance name="9x4.7V3_drone_2-10" uid="9x4.7V3_drone_2-10" entityUid="9x4.7V3_drone_2*:*Default">
-<Transform>
-<Rotation>0.90403410113499094 5.0232198054491936e-16 -0.42746034200268124 1.6592707759196389e-12 1 3.5103600006458685e-12 0.42746034200268124 -3.8827576011937777e-12 0.90403410113499094</Rotation>
-<Translation>0.25223048820939015 0.21201159778157674 0.36086315202575997</Translation>
-</Transform>
-</Instance>
 <Instance name="centerstruc_2-1" uid="centerstruc_2-1" entityUid="centerstruc_2" rigid="true">
 <Transform>
 <Rotation>-0.8919852908668745 9.4247384848793963e-11 -0.4520644211582428 -0.4520644211582428 -1.8206980495592353e-10 0.8919852908668745 1.7599999999999992e-12 1 2.0500947740903275e-10</Rotation>
 <Translation>0.301618322116187 -0.028310528938711013 0.65631154837304329</Translation>
 </Transform>
+<Instance name="Part1_2-5" uid="Part1_2-5" grounded="true" entityUid="Part1_2*:*Default">
+<Transform>
+<Rotation>0.45206442115824114 -2.1226188468050756e-10 0.89198529086687517 6.5550000000000027e-10 1 -9.4246333711422302e-11 -0.89198529086687517 6.2730177245877743e-10 0.45206442115824114</Rotation>
+<Translation>0.10561648719421593 0.0031242348878000037 0.28819710986534797</Translation>
+</Transform>
+</Instance>
+<Instance name="carbontube500mm_2-2" uid="carbontube500mm_2-2" grounded="true" entityUid="carbontube500mm_2*:*Default">
+<Transform>
+<Rotation>0.21389217294540697 3.9474502503527358e-15 -0.97685727634731356 -2.0364799999999992e-10 1 -4.4586621649169489e-11 0.97685727634731356 2.0847176000241323e-10 0.21389217294540697</Rotation>
+<Translation>0.084213535480370971 -0.63887576510118005 0.23530889121419699</Translation>
+</Transform>
+</Instance>
+<Instance name="carbontube400mm_2-1" uid="carbontube400mm_2-1" grounded="true" entityUid="carbontube400mm_2*:*Default">
+<Transform>
+<Rotation>0.89198529086687472 -0.061866045526903946 -0.44781115806554023 -9.4246999999999998e-11 0.99059146682388755 -0.13685227749547679 0.45206442115824291 0.12207021858980194 0.88359301765931875</Rotation>
+<Translation>0.11711984283085 -0.28987576510829599 0.26992355489294395</Translation>
+</Transform>
+</Instance>
+<Instance name="efom-10_2-1" uid="efom-10_2-1" grounded="true" entityUid="efom-10_2" rigid="true">
+<Transform>
+<Rotation>1.830000000000078e-13 0.45206442115824291 0.89198529086687472 -1 1.8636582791900089e-10 -9.4246352470879942e-11 -2.0884099999999996e-10 -0.89198529086687472 0.45206442115824291</Rotation>
+<Translation>0.17688285731893397 -0.029875765114811048 0.30021187116474496</Translation>
+</Transform>
+<Instance name="efom-10_01_2-2" uid="efom-10_01_2-2" grounded="true" entityUid="efom-10_01_2*:*Default">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0 0 -0.011999999999999997</Translation>
+</Transform>
+</Instance>
+<Instance name="Part13_2-2" uid="Part13_2-2" grounded="true" entityUid="Part13_2*:*Default">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0 0 0</Translation>
+</Transform>
+</Instance>
+<Instance name="efom-10_02_2-2" uid="efom-10_02_2-2" grounded="true" entityUid="efom-10_02_2*:*Default">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0 0 -0.011999999999999997</Translation>
+</Transform>
+</Instance>
+</Instance>
+<Instance name="Part1_2-4" uid="Part1_2-4" grounded="true" entityUid="Part1_2*:*Default">
+<Transform>
+<Rotation>0.45206442115824114 -2.1226188468050756e-10 0.89198529086687517 6.5550000000000027e-10 1 -9.4246333711422302e-11 -0.89198529086687517 6.2730177245877743e-10 0.45206442115824114</Rotation>
+<Translation>0.12934986930502299 -0.10437576510244295 0.24136788207242596</Translation>
+</Transform>
+</Instance>
 <Instance name="ASM0001_ASM_2-1" uid="ASM0001_ASM_2-1" grounded="true" entityUid="ASM0001_ASM_2" rigid="true">
 <Transform>
 <Rotation>0.45206442115824114 4.9607901524809138e-15 0.89198529086687517 1.8595000000000004e-10 1 -9.4246329805312883e-11 -0.89198529086687517 2.0847007736642296e-10 0.45206442115824114</Rotation>
@@ -111,16 +69,10 @@
 <Rotation>1 0 0 0 1 0 0 0 1</Rotation>
 <Translation>0 0 0.0015777624931500034</Translation>
 </Transform>
-<Instance name="PRT0003_2-6" uid="PRT0003_2-6" grounded="true" entityUid="PRT0003_2*:*Default">
+<Instance name="PRT0006_2-2" uid="PRT0006_2-2" grounded="true" entityUid="PRT0006_2*:*Default">
 <Transform>
-<Rotation>-0.99999999999999978 0 0 0 0 1 0 0.99999999999999978 0</Rotation>
-<Translation>-0.0094999999999999807 0.0085000000000000631 0.014499999999999999</Translation>
-</Transform>
-</Instance>
-<Instance name="PRT0004_2-4" uid="PRT0004_2-4" grounded="true" entityUid="PRT0004_2*:*Default">
-<Transform>
-<Rotation>0.99999999999999978 0 0 0 0 1 0 -0.99999999999999978 0</Rotation>
-<Translation>-0.0049499999999999822 -0.015190000000000037 -0.0097500000000000087</Translation>
+<Rotation>0 -0.99999999999999978 0 1 0 0 0 0 0.99999999999999978</Rotation>
+<Translation>0 0 0.019159999999999996</Translation>
 </Transform>
 </Instance>
 <Instance name="PRT0005_2-2" uid="PRT0005_2-2" grounded="true" entityUid="PRT0005_2*:*Default">
@@ -129,16 +81,10 @@
 <Translation>0 0 -0.0184</Translation>
 </Transform>
 </Instance>
-<Instance name="PRT0006_2-2" uid="PRT0006_2-2" grounded="true" entityUid="PRT0006_2*:*Default">
-<Transform>
-<Rotation>0 -0.99999999999999978 0 1 0 0 0 0 0.99999999999999978</Rotation>
-<Translation>0 0 0.019159999999999996</Translation>
-</Transform>
-</Instance>
-<Instance name="PRT0004_2-3" uid="PRT0004_2-3" grounded="true" entityUid="PRT0004_2*:*Default">
+<Instance name="PRT0004_2-4" uid="PRT0004_2-4" grounded="true" entityUid="PRT0004_2*:*Default">
 <Transform>
 <Rotation>0.99999999999999978 0 0 0 0 1 0 -0.99999999999999978 0</Rotation>
-<Translation>0.0050500000000000267 -0.015190000000000037 -0.0097500000000000087</Translation>
+<Translation>-0.0049499999999999822 -0.015190000000000037 -0.0097500000000000087</Translation>
 </Transform>
 </Instance>
 <Instance name="PRT0007_2-2" uid="PRT0007_2-2" grounded="true" entityUid="PRT0007_2*:*Default">
@@ -147,16 +93,16 @@
 <Translation>0 0 0.019479999999999997</Translation>
 </Transform>
 </Instance>
-<Instance name="PRT0003_2-5" uid="PRT0003_2-5" grounded="true" entityUid="PRT0003_2*:*Default">
+<Instance name="PRT0003_2-8" uid="PRT0003_2-8" grounded="true" entityUid="PRT0003_2*:*Default">
 <Transform>
 <Rotation>-0.99999999999999978 0 0 0 0 1 0 0.99999999999999978 0</Rotation>
-<Translation>0.0095000000000000084 0.0085000000000000631 0.014499999999999999</Translation>
+<Translation>-0.010499999999999982 -0.033000000000000029 0.014499999999999999</Translation>
 </Transform>
 </Instance>
-<Instance name="PRT0001_2-2" uid="PRT0001_2-2" grounded="true" entityUid="PRT0001_2*:*Default">
+<Instance name="PRT0004_2-3" uid="PRT0004_2-3" grounded="true" entityUid="PRT0004_2*:*Default">
 <Transform>
-<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
-<Translation>0 0 0</Translation>
+<Rotation>0.99999999999999978 0 0 0 0 1 0 -0.99999999999999978 0</Rotation>
+<Translation>0.0050500000000000267 -0.015190000000000037 -0.0097500000000000087</Translation>
 </Transform>
 </Instance>
 <Instance name="PRT0003_2-7" uid="PRT0003_2-7" grounded="true" entityUid="PRT0003_2*:*Default">
@@ -165,10 +111,16 @@
 <Translation>0.010500000000000009 -0.033000000000000029 0.014499999999999999</Translation>
 </Transform>
 </Instance>
-<Instance name="PRT0003_2-8" uid="PRT0003_2-8" grounded="true" entityUid="PRT0003_2*:*Default">
+<Instance name="PRT0003_2-6" uid="PRT0003_2-6" grounded="true" entityUid="PRT0003_2*:*Default">
 <Transform>
 <Rotation>-0.99999999999999978 0 0 0 0 1 0 0.99999999999999978 0</Rotation>
-<Translation>-0.010499999999999982 -0.033000000000000029 0.014499999999999999</Translation>
+<Translation>-0.0094999999999999807 0.0085000000000000631 0.014499999999999999</Translation>
+</Transform>
+</Instance>
+<Instance name="PRT0001_2-2" uid="PRT0001_2-2" grounded="true" entityUid="PRT0001_2*:*Default">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0 0 0</Translation>
 </Transform>
 </Instance>
 <Instance name="PRT0002_2-2" uid="PRT0002_2-2" grounded="true" entityUid="PRT0002_2*:*Default">
@@ -177,30 +129,48 @@
 <Translation>0 0 -0.0020000000000000018</Translation>
 </Transform>
 </Instance>
-</Instance>
-</Instance>
-<Instance name="servoconnect_tubes_2-1" uid="servoconnect_tubes_2-1" grounded="true" entityUid="servoconnect_tubes_2*:*Default">
+<Instance name="PRT0003_2-5" uid="PRT0003_2-5" grounded="true" entityUid="PRT0003_2*:*Default">
 <Transform>
-<Rotation>0.89198529086687517 4.5869719336892848e-15 -0.45206442115824114 -9.4247000000000037e-11 1 -1.8595214929991458e-10 0.45206442115824114 2.0847229748150572e-10 0.89198529086687517</Rotation>
-<Translation>0.131133839886756 -0.10437576510263202 0.24227201091474296</Translation>
+<Rotation>-0.99999999999999978 0 0 0 0 1 0 0.99999999999999978 0</Rotation>
+<Translation>0.0095000000000000084 0.0085000000000000631 0.014499999999999999</Translation>
 </Transform>
 </Instance>
-<Instance name="BearingConnect_2-2" uid="BearingConnect_2-2" grounded="true" entityUid="BearingConnect_2*:*Default">
+</Instance>
+</Instance>
+<Instance name="efom-10_2-2" uid="efom-10_2-2" grounded="true" entityUid="efom-10_2" rigid="true">
 <Transform>
-<Rotation>0.89198529086687472 4.5869719333668261e-15 -0.45206442115824291 -9.4246999999999998e-11 1 -1.8595214929991442e-10 0.45206442115824291 2.0847229748150554e-10 0.89198529086687472</Rotation>
-<Translation>0.19739851900886998 -0.029875765116879061 0.31060935285138896</Translation>
+<Rotation>1.9099999999999909e-13 0.45206442115824291 -0.89198529086687472 1 1.8553936266611882e-10 9.4246783491270536e-11 2.0810399999999997e-10 -0.89198529086687472 -0.45206442115824291</Rotation>
+<Translation>0.057356828342772004 -0.029875765101987084 0.23963523872954096</Translation>
+</Transform>
+<Instance name="efom-10_01_2-2" uid="efom-10_01_2-2" grounded="true" entityUid="efom-10_01_2*:*Default">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0 0 -0.012000000000000011</Translation>
 </Transform>
 </Instance>
-<Instance name="Motor_2-2" uid="Motor_2-2" grounded="true" entityUid="Motor_2*:*Default">
+<Instance name="Part13_2-2" uid="Part13_2-2" grounded="true" entityUid="Part13_2*:*Default">
 <Transform>
-<Rotation>0.89198529086687472 4.791334174246509e-15 -0.45206442115824291 -9.4246999999999998e-11 1 -1.8595169723549329e-10 0.45206442115824291 2.0847189424669134e-10 0.89198529086687472</Rotation>
-<Translation>-0.043437509525187989 -0.28987576509133206 0.18855195908446096</Translation>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0 0 0</Translation>
 </Transform>
 </Instance>
-<Instance name="Part1_2-3" uid="Part1_2-3" grounded="true" entityUid="Part1_2*:*Default">
+<Instance name="efom-10_02_2-2" uid="efom-10_02_2-2" grounded="true" entityUid="efom-10_02_2*:*Default">
 <Transform>
-<Rotation>0.3761163872435927 -0.250796140568318 0.89198529086687528 0.55477964843084382 0.83199732072101618 -9.4247692983273623e-11 -0.74212937210015939 0.49485528610805712 0.45206442115824125</Rotation>
-<Translation>0.10561648719421199 -0.630875765112206 0.28819710973317703</Translation>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0 0 -0.012000000000000011</Translation>
+</Transform>
+</Instance>
+</Instance>
+<Instance name="carbontube500mm_2-4" uid="carbontube500mm_2-4" grounded="true" entityUid="carbontube500mm_2*:*Default">
+<Transform>
+<Rotation>0.99990472829388555 4.6263808923743213e-15 0.013803417530831974 2.8729999999999927e-12 1 -2.084521937305531e-10 -0.013803417530831974 2.0847199135297914e-10 0.99990472829388555</Rotation>
+<Translation>0.16449221165838995 -0.63887576510966204 0.27599468911843794</Translation>
+</Transform>
+</Instance>
+<Instance name="carbontube500mm_2-5" uid="carbontube500mm_2-5" grounded="true" entityUid="carbontube500mm_2*:*Default">
+<Transform>
+<Rotation>0.99999999999999989 3.9999999999925109e-15 3.9804992635333337e-11 -4.0000000000100804e-15 1 -2.0847200000000002e-10 -3.9804992634979433e-11 2.0847199999999997e-10 0.99999999999999989</Rotation>
+<Translation>0.13058738007152201 -0.638875765123609 0.34289358593345387</Translation>
 </Transform>
 </Instance>
 <Instance name="carbontube500mm_2-6" uid="carbontube500mm_2-6" grounded="true" entityUid="carbontube500mm_2*:*Default">
@@ -209,16 +179,22 @@
 <Translation>0.050308703893503004 -0.638875765115127 0.30220778802921194</Translation>
 </Transform>
 </Instance>
+<Instance name="updownconnect_2-5" uid="updownconnect_2-5" grounded="true" entityUid="updownconnect_2*:*Default">
+<Transform>
+<Rotation>0.89198529086687517 4.5869719336892848e-15 -0.45206442115824114 -9.4247000000000037e-11 1 -1.8595214929991458e-10 0.45206442115824114 2.0847229748150572e-10 0.89198529086687517</Rotation>
+<Translation>0.16449221165838995 -0.61087576510966202 0.27599468912427594</Translation>
+</Transform>
+</Instance>
 <Instance name="updownconnect_2-2" uid="updownconnect_2-2" grounded="true" entityUid="updownconnect_2*:*Default">
 <Transform>
 <Rotation>0.89198529086687517 4.5869719336892848e-15 -0.45206442115824114 -9.4247000000000037e-11 1 -1.8595214929991458e-10 0.45206442115824114 2.0847229748150572e-10 0.89198529086687517</Rotation>
 <Translation>0.084213535480370999 -0.61087576510118002 0.23530889122003396</Translation>
 </Transform>
 </Instance>
-<Instance name="Part1_2-4" uid="Part1_2-4" grounded="true" entityUid="Part1_2*:*Default">
+<Instance name="updownconnect_2-6" uid="updownconnect_2-6" grounded="true" entityUid="updownconnect_2*:*Default">
 <Transform>
-<Rotation>0.45206442115824114 -2.1226188468050756e-10 0.89198529086687517 6.5550000000000027e-10 1 -9.4246333711422302e-11 -0.89198529086687517 6.2730177245877743e-10 0.45206442115824114</Rotation>
-<Translation>0.12934986930502299 -0.10437576510244295 0.24136788207242596</Translation>
+<Rotation>0.89198529086687572 4.5869719337238709e-15 -0.45206442115824091 -9.4246999999999998e-11 1 -1.8595214929991466e-10 0.45206442115824091 2.0847229748150574e-10 0.89198529086687572</Rotation>
+<Translation>0.084213535480373997 0.023124234898819984 0.23530889135220495</Translation>
 </Transform>
 </Instance>
 <Instance name="updownconnect_2-7" uid="updownconnect_2-7" grounded="true" entityUid="updownconnect_2*:*Default">
@@ -227,94 +203,16 @@
 <Translation>0.16449221165839301 0.023124234890342987 0.27599468925644693</Translation>
 </Transform>
 </Instance>
-<Instance name="updownconnect_2-5" uid="updownconnect_2-5" grounded="true" entityUid="updownconnect_2*:*Default">
+<Instance name="Motor_2-2" uid="Motor_2-2" grounded="true" entityUid="Motor_2*:*Default">
+<Transform>
+<Rotation>0.89198529086687472 4.791334174246509e-15 -0.45206442115824291 -9.4246999999999998e-11 1 -1.8595169723549329e-10 0.45206442115824291 2.0847189424669134e-10 0.89198529086687472</Rotation>
+<Translation>-0.043437509525187989 -0.28987576509133206 0.18855195908446096</Translation>
+</Transform>
+</Instance>
+<Instance name="servoconnect_tubes_2-1" uid="servoconnect_tubes_2-1" grounded="true" entityUid="servoconnect_tubes_2*:*Default">
 <Transform>
 <Rotation>0.89198529086687517 4.5869719336892848e-15 -0.45206442115824114 -9.4247000000000037e-11 1 -1.8595214929991458e-10 0.45206442115824114 2.0847229748150572e-10 0.89198529086687517</Rotation>
-<Translation>0.16449221165838995 -0.61087576510966202 0.27599468912427594</Translation>
-</Transform>
-</Instance>
-<Instance name="efom-10_2-1" uid="efom-10_2-1" grounded="true" entityUid="efom-10_2" rigid="true">
-<Transform>
-<Rotation>1.830000000000078e-13 0.45206442115824291 0.89198529086687472 -1 1.8636582791900089e-10 -9.4246352470879942e-11 -2.0884099999999996e-10 -0.89198529086687472 0.45206442115824291</Rotation>
-<Translation>0.17688285731893397 -0.029875765114811048 0.30021187116474496</Translation>
-</Transform>
-<Instance name="efom-10_02_2-2" uid="efom-10_02_2-2" grounded="true" entityUid="efom-10_02_2*:*Default">
-<Transform>
-<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
-<Translation>0 0 -0.011999999999999997</Translation>
-</Transform>
-</Instance>
-<Instance name="Part13_2-2" uid="Part13_2-2" grounded="true" entityUid="Part13_2*:*Default">
-<Transform>
-<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
-<Translation>0 0 0</Translation>
-</Transform>
-</Instance>
-<Instance name="efom-10_01_2-2" uid="efom-10_01_2-2" grounded="true" entityUid="efom-10_01_2*:*Default">
-<Transform>
-<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
-<Translation>0 0 -0.011999999999999997</Translation>
-</Transform>
-</Instance>
-</Instance>
-<Instance name="carbontube500mm_2-5" uid="carbontube500mm_2-5" grounded="true" entityUid="carbontube500mm_2*:*Default">
-<Transform>
-<Rotation>0.99999999999999989 3.9999999999925109e-15 3.9804992635333337e-11 -4.0000000000100804e-15 1 -2.0847200000000002e-10 -3.9804992634979433e-11 2.0847199999999997e-10 0.99999999999999989</Rotation>
-<Translation>0.13058738007152201 -0.638875765123609 0.34289358593345387</Translation>
-</Transform>
-</Instance>
-<Instance name="Part1_2-5" uid="Part1_2-5" grounded="true" entityUid="Part1_2*:*Default">
-<Transform>
-<Rotation>0.45206442115824114 -2.1226188468050756e-10 0.89198529086687517 6.5550000000000027e-10 1 -9.4246333711422302e-11 -0.89198529086687517 6.2730177245877743e-10 0.45206442115824114</Rotation>
-<Translation>0.10561648719421593 0.0031242348878000037 0.28819710986534797</Translation>
-</Transform>
-</Instance>
-<Instance name="efom-10_2-2" uid="efom-10_2-2" grounded="true" entityUid="efom-10_2" rigid="true">
-<Transform>
-<Rotation>1.9099999999999909e-13 0.45206442115824291 -0.89198529086687472 1 1.8553936266611882e-10 9.4246783491270536e-11 2.0810399999999997e-10 -0.89198529086687472 -0.45206442115824291</Rotation>
-<Translation>0.057356828342772004 -0.029875765101987084 0.23963523872954096</Translation>
-</Transform>
-<Instance name="efom-10_02_2-2" uid="efom-10_02_2-2" grounded="true" entityUid="efom-10_02_2*:*Default">
-<Transform>
-<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
-<Translation>0 0 -0.012000000000000011</Translation>
-</Transform>
-</Instance>
-<Instance name="Part13_2-2" uid="Part13_2-2" grounded="true" entityUid="Part13_2*:*Default">
-<Transform>
-<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
-<Translation>0 0 0</Translation>
-</Transform>
-</Instance>
-<Instance name="efom-10_01_2-2" uid="efom-10_01_2-2" grounded="true" entityUid="efom-10_01_2*:*Default">
-<Transform>
-<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
-<Translation>0 0 -0.012000000000000011</Translation>
-</Transform>
-</Instance>
-</Instance>
-<Instance name="carbontube400mm_2-1" uid="carbontube400mm_2-1" grounded="true" entityUid="carbontube400mm_2*:*Default">
-<Transform>
-<Rotation>0.89198529086687472 -0.061866045526903946 -0.44781115806554023 -9.4246999999999998e-11 0.99059146682388755 -0.13685227749547679 0.45206442115824291 0.12207021858980194 0.88359301765931875</Rotation>
-<Translation>0.11711984283085 -0.28987576510829599 0.26992355489294395</Translation>
-</Transform>
-</Instance>
-<Instance name="carbontube500mm_2-4" uid="carbontube500mm_2-4" grounded="true" entityUid="carbontube500mm_2*:*Default">
-<Transform>
-<Rotation>0.99990472829388555 4.6263808923743213e-15 0.013803417530831974 2.8729999999999927e-12 1 -2.084521937305531e-10 -0.013803417530831974 2.0847199135297914e-10 0.99990472829388555</Rotation>
-<Translation>0.16449221165838995 -0.63887576510966204 0.27599468911843794</Translation>
-</Transform>
-</Instance>
-<Instance name="carbontube500mm_2-2" uid="carbontube500mm_2-2" grounded="true" entityUid="carbontube500mm_2*:*Default">
-<Transform>
-<Rotation>0.21389217294540697 3.9474502503527358e-15 -0.97685727634731356 -2.0364799999999992e-10 1 -4.4586621649169489e-11 0.97685727634731356 2.0847176000241323e-10 0.21389217294540697</Rotation>
-<Translation>0.084213535480370971 -0.63887576510118005 0.23530889121419699</Translation>
-</Transform>
-</Instance>
-<Instance name="updownconnect_2-6" uid="updownconnect_2-6" grounded="true" entityUid="updownconnect_2*:*Default">
-<Transform>
-<Rotation>0.89198529086687572 4.5869719337238709e-15 -0.45206442115824091 -9.4246999999999998e-11 1 -1.8595214929991466e-10 0.45206442115824091 2.0847229748150574e-10 0.89198529086687572</Rotation>
-<Translation>0.084213535480373997 0.023124234898819984 0.23530889135220495</Translation>
+<Translation>0.131133839886756 -0.10437576510263202 0.24227201091474296</Translation>
 </Transform>
 </Instance>
 <Instance name="Motor_2-1" uid="Motor_2-1" grounded="true" entityUid="Motor_2*:*Default">
@@ -335,6 +233,18 @@
 <Translation>0.076980504741839983 -0.28987576510405499 0.24958065594082296</Translation>
 </Transform>
 </Instance>
+<Instance name="BearingConnect_2-2" uid="BearingConnect_2-2" grounded="true" entityUid="BearingConnect_2*:*Default">
+<Transform>
+<Rotation>0.89198529086687472 4.5869719333668261e-15 -0.45206442115824291 -9.4246999999999998e-11 1 -1.8595214929991442e-10 0.45206442115824291 2.0847229748150554e-10 0.89198529086687472</Rotation>
+<Translation>0.19739851900886998 -0.029875765116879061 0.31060935285138896</Translation>
+</Transform>
+</Instance>
+<Instance name="Part1_2-3" uid="Part1_2-3" grounded="true" entityUid="Part1_2*:*Default">
+<Transform>
+<Rotation>0.3761163872435927 -0.250796140568318 0.89198529086687528 0.55477964843084382 0.83199732072101618 -9.4247692983273623e-11 -0.74212937210015939 0.49485528610805712 0.45206442115824125</Rotation>
+<Translation>0.10561648719421199 -0.630875765112206 0.28819710973317703</Translation>
+</Transform>
+</Instance>
 <Instance name="BearingConnect_2-3" uid="BearingConnect_2-3" grounded="true" entityUid="BearingConnect_2*:*Default">
 <Transform>
 <Rotation>-0.89198529086687472 -4.791334174246509e-15 -0.45206442115824291 9.4246999999999998e-11 -1 -1.8595169723549329e-10 -0.45206442115824291 -2.0847189424669134e-10 0.89198529086687472</Rotation>
@@ -348,10 +258,40 @@
 </Transform>
 </Instance>
 </Instance>
-<Instance name="2826motor_drone_2-13" uid="2826motor_drone_2-13" entityUid="2826motor_drone_2*:*Default">
+<Instance name="moveableprop_2-1" uid="moveableprop_2-1" entityUid="moveableprop_2" rigid="true">
 <Transform>
-<Rotation>-1 1.0000000000000001e-15 0 0 -3.8830000000000003e-12 -1 -1.0000000000000001e-15 -1 3.8830000000000003e-12</Rotation>
-<Translation>-0.10487369058454496 0.13971159778159792 0.36643578332036714</Translation>
+<Rotation>0.98498655123927892 0.12139442660311005 -0.12273910162394677 0.082017944208266524 0.29654251697478973 0.95149124665133211 0.15190309643190653 -0.9472728903626233 0.28213386978248511</Rotation>
+<Translation>0.17371634618290041 0.31287571767859473 0.72803045432003199</Translation>
+</Transform>
+<Instance name="Motor_2-2" uid="Motor_2-2" grounded="true" entityUid="Motor_2*:*Default">
+<Transform>
+<Rotation>-0.98498655123927858 0.15190309643222752 0.082017944207678356 -0.12139442660311207 -0.94727289036147155 0.29654251697846767 0.12273910162394906 0.28213386978617894 0.95149124665023654</Rotation>
+<Translation>0.052176563985978031 0.060641611322379996 -0.18458010106032702</Translation>
+</Transform>
+</Instance>
+<Instance name="Gear48T_2-1" uid="Gear48T_2-1" grounded="true" entityUid="Gear48T_2*:*Default">
+<Transform>
+<Rotation>-0.082017944207677954 -0.15190309643222799 0.98498655123927825 -0.29654251697847078 0.94727289036147067 0.12139442660311214 -0.95149124665023532 -0.2821338697861821 -0.1227391016239492</Rotation>
+<Translation>-0.13891082695451401 0.037091092561348127 -0.16076871534523202</Translation>
+</Transform>
+</Instance>
+<Instance name="Motor_2-3" uid="Motor_2-3" grounded="true" entityUid="Motor_2*:*Default">
+<Transform>
+<Rotation>-0.98498655123927858 0.15190309643222752 0.082017944207678356 -0.12139442660311207 -0.94727289036147155 0.29654251697846767 0.12273910162394906 0.28213386978617894 0.95149124665023654</Rotation>
+<Translation>-0.30241859446016206 0.016939617745259095 -0.14039402447570498</Translation>
+</Transform>
+</Instance>
+<Instance name="carbontube400mm_2-1" uid="carbontube400mm_2-1" grounded="true" entityUid="carbontube400mm_2*:*Default">
+<Transform>
+<Rotation>-0.9849865512392787 -0.10369951812718833 0.13801414354311875 -0.12139442660311092 -0.15234759438158091 -0.98084331249993584 0.12273910162394693 -0.9828716195039584 0.13747178803744498</Rotation>
+<Translation>-0.12512101523709199 0.038790614533820045 -0.16248706276801606</Translation>
+</Transform>
+</Instance>
+</Instance>
+<Instance name="2826motor_drone_2-11" uid="2826motor_drone_2-11" entityUid="2826motor_drone_2*:*Default">
+<Transform>
+<Rotation>1 -1.1999999999999999e-14 0 0 -3.8830000000000003e-12 1 -1.1999999999999999e-14 -1 -3.8830000000000003e-12</Rotation>
+<Translation>0.25512630941546 0.1793115977815983 0.36643578332020937</Translation>
 </Transform>
 </Instance>
 <Instance name="platform_2-1" uid="platform_2-1" entityUid="platform_2" rigid="true">
@@ -359,11 +299,47 @@
 <Rotation>-1 0 -1.0000000000000001e-15 -1.0000000000000001e-15 3.8819999999999998e-12 1 0 1 -3.8819999999999998e-12</Rotation>
 <Translation>0.072926454085626563 0.22886721687904255 0.44244581876878797</Translation>
 </Transform>
+<Instance name="10mm 8mm bore idler_2-3" uid="10mm 8mm bore idler_2-3" grounded="true" entityUid="10mm 8mm bore idler_2" rigid="true">
+<Transform>
+<Rotation>0 -1 0 1 0 0 0 0 1</Rotation>
+<Translation>0.047150144670221994 -0.088781347781899 0.03009456715101208</Translation>
+</Transform>
+<Instance name="Body_2-2" uid="Body_2-2" grounded="true" entityUid="Body_2*:*Default">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0 0 0</Translation>
+</Transform>
+</Instance>
+<Instance name="Bearing_2-2" uid="Bearing_2-2" grounded="true" entityUid="Bearing_2*:*Default">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0 0 0</Translation>
+</Transform>
+</Instance>
+</Instance>
 <Instance name="F3.stp_2-1" uid="F3.stp_2-1" grounded="true" entityUid="F3.stp_2*:*Default">
 <Transform>
 <Rotation>7.9999999999961178e-15 0 1 1 0 -8.0000000000038834e-15 0 1 0</Rotation>
 <Translation>0.0098001446701719841 -0.043904558004433991 0.0016443809028500178</Translation>
 </Transform>
+</Instance>
+<Instance name="10mm 8mm bore idler_2-2" uid="10mm 8mm bore idler_2-2" grounded="true" entityUid="10mm 8mm bore idler_2" rigid="true">
+<Transform>
+<Rotation>0 -1 0 1 0 0 0 0 1</Rotation>
+<Translation>0.047150144670221994 -0.028781347781888955 0.030094567151013024</Translation>
+</Transform>
+<Instance name="Body_2-2" uid="Body_2-2" grounded="true" entityUid="Body_2*:*Default">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0 0 0</Translation>
+</Transform>
+</Instance>
+<Instance name="Bearing_2-2" uid="Bearing_2-2" grounded="true" entityUid="Bearing_2*:*Default">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0 0 0</Translation>
+</Transform>
+</Instance>
 </Instance>
 <Instance name="platform-0_2-1" uid="platform-0_2-1" grounded="true" entityUid="platform-0_2*:*Default">
 <Transform>
@@ -388,16 +364,10 @@
 <Rotation>1 0 0 0 1 0 0 0 1</Rotation>
 <Translation>0 0 0.0015777624931500034</Translation>
 </Transform>
-<Instance name="PRT0003_2-6" uid="PRT0003_2-6" grounded="true" entityUid="PRT0003_2*:*Default">
+<Instance name="PRT0006_2-2" uid="PRT0006_2-2" grounded="true" entityUid="PRT0006_2*:*Default">
 <Transform>
-<Rotation>-1 0 0 0 0 1 0 1 0</Rotation>
-<Translation>-0.0095000000000000084 0.0085000000000000075 0.014499999999999999</Translation>
-</Transform>
-</Instance>
-<Instance name="PRT0004_2-4" uid="PRT0004_2-4" grounded="true" entityUid="PRT0004_2*:*Default">
-<Transform>
-<Rotation>1 0 0 0 0 1 0 -1 0</Rotation>
-<Translation>-0.0049500000000000099 -0.015189999999999981 -0.0097500000000000087</Translation>
+<Rotation>0 -1 0 1 0 0 0 0 1</Rotation>
+<Translation>0 0 0.019159999999999996</Translation>
 </Transform>
 </Instance>
 <Instance name="PRT0005_2-2" uid="PRT0005_2-2" grounded="true" entityUid="PRT0005_2*:*Default">
@@ -406,16 +376,10 @@
 <Translation>0 0 -0.0184</Translation>
 </Transform>
 </Instance>
-<Instance name="PRT0006_2-2" uid="PRT0006_2-2" grounded="true" entityUid="PRT0006_2*:*Default">
-<Transform>
-<Rotation>0 -1 0 1 0 0 0 0 1</Rotation>
-<Translation>0 0 0.019159999999999996</Translation>
-</Transform>
-</Instance>
-<Instance name="PRT0004_2-3" uid="PRT0004_2-3" grounded="true" entityUid="PRT0004_2*:*Default">
+<Instance name="PRT0004_2-4" uid="PRT0004_2-4" grounded="true" entityUid="PRT0004_2*:*Default">
 <Transform>
 <Rotation>1 0 0 0 0 1 0 -1 0</Rotation>
-<Translation>0.0050499999999999989 -0.015189999999999981 -0.0097499999999999948</Translation>
+<Translation>-0.0049500000000000099 -0.015189999999999981 -0.0097500000000000087</Translation>
 </Transform>
 </Instance>
 <Instance name="PRT0007_2-2" uid="PRT0007_2-2" grounded="true" entityUid="PRT0007_2*:*Default">
@@ -424,16 +388,16 @@
 <Translation>0 0 0.019479999999999997</Translation>
 </Transform>
 </Instance>
-<Instance name="PRT0003_2-5" uid="PRT0003_2-5" grounded="true" entityUid="PRT0003_2*:*Default">
+<Instance name="PRT0003_2-8" uid="PRT0003_2-8" grounded="true" entityUid="PRT0003_2*:*Default">
 <Transform>
 <Rotation>-1 0 0 0 0 1 0 1 0</Rotation>
-<Translation>0.0094999999999999529 0.008499999999999952 0.014500000000000006</Translation>
+<Translation>-0.010500000000000009 -0.033000000000000029 0.014500000000000006</Translation>
 </Transform>
 </Instance>
-<Instance name="PRT0001_2-2" uid="PRT0001_2-2" grounded="true" entityUid="PRT0001_2*:*Default">
+<Instance name="PRT0004_2-3" uid="PRT0004_2-3" grounded="true" entityUid="PRT0004_2*:*Default">
 <Transform>
-<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
-<Translation>0 0 0</Translation>
+<Rotation>1 0 0 0 0 1 0 -1 0</Rotation>
+<Translation>0.0050499999999999989 -0.015189999999999981 -0.0097499999999999948</Translation>
 </Transform>
 </Instance>
 <Instance name="PRT0003_2-7" uid="PRT0003_2-7" grounded="true" entityUid="PRT0003_2*:*Default">
@@ -442,10 +406,16 @@
 <Translation>0.010500000000000009 -0.032999999999999974 0.014500000000000006</Translation>
 </Transform>
 </Instance>
-<Instance name="PRT0003_2-8" uid="PRT0003_2-8" grounded="true" entityUid="PRT0003_2*:*Default">
+<Instance name="PRT0003_2-6" uid="PRT0003_2-6" grounded="true" entityUid="PRT0003_2*:*Default">
 <Transform>
 <Rotation>-1 0 0 0 0 1 0 1 0</Rotation>
-<Translation>-0.010500000000000009 -0.033000000000000029 0.014500000000000006</Translation>
+<Translation>-0.0095000000000000084 0.0085000000000000075 0.014499999999999999</Translation>
+</Transform>
+</Instance>
+<Instance name="PRT0001_2-2" uid="PRT0001_2-2" grounded="true" entityUid="PRT0001_2*:*Default">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0 0 0</Translation>
 </Transform>
 </Instance>
 <Instance name="PRT0002_2-2" uid="PRT0002_2-2" grounded="true" entityUid="PRT0002_2*:*Default">
@@ -454,61 +424,49 @@
 <Translation>0 0 -0.0020000000000000018</Translation>
 </Transform>
 </Instance>
-</Instance>
-</Instance>
-<Instance name="10mm 8mm bore idler_2-2" uid="10mm 8mm bore idler_2-2" grounded="true" entityUid="10mm 8mm bore idler_2" rigid="true">
+<Instance name="PRT0003_2-5" uid="PRT0003_2-5" grounded="true" entityUid="PRT0003_2*:*Default">
 <Transform>
-<Rotation>0 -1 0 1 0 0 0 0 1</Rotation>
-<Translation>0.047150144670221994 -0.028781347781888955 0.030094567151013024</Translation>
-</Transform>
-<Instance name="Bearing_2-2" uid="Bearing_2-2" grounded="true" entityUid="Bearing_2*:*Default">
-<Transform>
-<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
-<Translation>0 0 0</Translation>
-</Transform>
-</Instance>
-<Instance name="Body_2-2" uid="Body_2-2" grounded="true" entityUid="Body_2*:*Default">
-<Transform>
-<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
-<Translation>0 0 0</Translation>
-</Transform>
-</Instance>
-</Instance>
-<Instance name="10mm 8mm bore idler_2-3" uid="10mm 8mm bore idler_2-3" grounded="true" entityUid="10mm 8mm bore idler_2" rigid="true">
-<Transform>
-<Rotation>0 -1 0 1 0 0 0 0 1</Rotation>
-<Translation>0.047150144670221994 -0.088781347781899 0.03009456715101208</Translation>
-</Transform>
-<Instance name="Bearing_2-2" uid="Bearing_2-2" grounded="true" entityUid="Bearing_2*:*Default">
-<Transform>
-<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
-<Translation>0 0 0</Translation>
-</Transform>
-</Instance>
-<Instance name="Body_2-2" uid="Body_2-2" grounded="true" entityUid="Body_2*:*Default">
-<Transform>
-<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
-<Translation>0 0 0</Translation>
+<Rotation>-1 0 0 0 0 1 0 1 0</Rotation>
+<Translation>0.0094999999999999529 0.008499999999999952 0.014500000000000006</Translation>
 </Transform>
 </Instance>
 </Instance>
 </Instance>
-<Instance name="2826motor_drone_2-4" uid="2826motor_drone_2-4" entityUid="2826motor_drone_2*:*Default">
+</Instance>
+<Instance name="9x4.7V3_drone_2-10" uid="9x4.7V3_drone_2-10" entityUid="9x4.7V3_drone_2*:*Default">
 <Transform>
-<Rotation>-1 -2.0036619151907804e-14 -2.3793497954148583e-15 0 0.12257678402663136 -0.99245903291656756 2.0177176712416376e-14 -0.99245903291656756 -0.12257678402663136</Rotation>
-<Translation>-0.10487369058445509 0.13986090893085734 0.62400876299636487</Translation>
+<Rotation>0.90403410113499094 5.0232198054491936e-16 -0.42746034200268124 1.6592707759196389e-12 1 3.5103600006458685e-12 0.42746034200268124 -3.8827576011937777e-12 0.90403410113499094</Rotation>
+<Translation>0.25223048820939015 0.21201159778157674 0.36086315202575997</Translation>
 </Transform>
 </Instance>
-<Instance name="2826motor_drone_2-15" uid="2826motor_drone_2-15" entityUid="2826motor_drone_2*:*Default">
+<Instance name="2826motor_drone_2-12" uid="2826motor_drone_2-12" entityUid="2826motor_drone_2*:*Default">
 <Transform>
-<Rotation>1 4.2663743115030062e-14 1.8034270403543476e-15 -7.0194118819843866e-15 0.12257678402663136 0.99245903291656756 4.2120958945710352e-14 -0.99245903291656756 0.12257678402663136</Rotation>
-<Translation>0.25512630941551195 0.17916228663435177 0.62886280364382574</Translation>
+<Rotation>-1 8.0000000000000006e-15 0 0 -3.8830000000000003e-12 -1 -8.0000000000000006e-15 -1 3.8830000000000003e-12</Rotation>
+<Translation>0.25512630941545233 0.13971159778159833 0.36643578332036841</Translation>
 </Transform>
 </Instance>
-<Instance name="9x4.7V3_drone_2-8" uid="9x4.7V3_drone_2-8" entityUid="9x4.7V3_drone_2*:*Default">
+<Instance name="2826motor_drone_2-17" uid="2826motor_drone_2-17" entityUid="2826motor_drone_2*:*Default">
 <Transform>
-<Rotation>0.72786071409271447 1.6328002210005302e-15 -0.6857250038320345 -0.084053965696381253 0.9924590329165679 -0.089218825552810993 0.68055397414985064 0.12257678402663109 0.72237194040641795</Rotation>
-<Translation>-0.10590723914036725 0.21237499837630819 0.62672328123719467</Translation>
+<Rotation>1 -3.4811659886703166e-15 1.7087658730461094e-15 -1.708765873059622e-15 -3.882255628084863e-12 1.0000000000000002 -3.481165988663663e-15 -1.0000000000000002 -3.882255628084863e-12</Rotation>
+<Translation>-0.10487369058446462 0.17931159778260264 0.62643578332001459</Translation>
+</Transform>
+</Instance>
+<Instance name="9x4.7V3_drone_2-11" uid="9x4.7V3_drone_2-11" entityUid="9x4.7V3_drone_2*:*Default">
+<Transform>
+<Rotation>0.82291031858635444 1.7079410431769086e-15 -0.56817128364966185 2.2043478153932483e-12 1.0000000000000002 3.1956937096566662e-12 0.56817128364966196 -3.8822139947214396e-12 0.82291031858635455</Rotation>
+<Translation>0.25317080870047232 0.21201159778257861 0.62046786769100937</Translation>
+</Transform>
+</Instance>
+<Instance name="2826motor_drone_2-14" uid="2826motor_drone_2-14" entityUid="2826motor_drone_2*:*Default">
+<Transform>
+<Rotation>-1 -1.3220558735437882e-14 -1.7191983871826254e-15 1.7191983872339534e-15 -3.8822833836604786e-12 -1.0000000000000002 1.322055873543128e-14 -1.0000000000000002 3.8822833836604786e-12</Rotation>
+<Translation>0.25512630941553521 0.13971159778260181 0.62643578332016658</Translation>
+</Transform>
+</Instance>
+<Instance name="9x4.7V3_drone_2-12" uid="9x4.7V3_drone_2-12" entityUid="9x4.7V3_drone_2*:*Default">
+<Transform>
+<Rotation>-0.92348764094910463 -1.727160700944976e-15 0.38362817546976091 1.4909393164508348e-12 -1 3.5845565038663349e-12 0.38362817546976091 3.8822599593104578e-12 0.92348764094910463</Rotation>
+<Translation>0.25828596055349556 0.10701159778258071 0.62100838940733827</Translation>
 </Transform>
 </Instance>
 <Instance name="9x4.7V3_drone_2-15" uid="9x4.7V3_drone_2-15" entityUid="9x4.7V3_drone_2*:*Default">
@@ -517,10 +475,52 @@
 <Translation>-0.10920236201997235 0.21201159778158024 0.36188577193503307</Translation>
 </Transform>
 </Instance>
+<Instance name="9x4.7V3_drone_2-8" uid="9x4.7V3_drone_2-8" entityUid="9x4.7V3_drone_2*:*Default">
+<Transform>
+<Rotation>0.72786071409271447 1.7097597387251614e-15 -0.6857250038320345 2.6607049896654189e-12 1 2.8266905576939299e-12 0.6857250038320345 -3.8819489470764701e-12 0.72786071409271447</Rotation>
+<Translation>-0.10590723914036639 0.21201159778257861 0.62024128758717501</Translation>
+</Transform>
+</Instance>
+<Instance name="2826motor_drone_2-13" uid="2826motor_drone_2-13" entityUid="2826motor_drone_2*:*Default">
+<Transform>
+<Rotation>-1 1.0000000000000001e-15 0 0 -3.8830000000000003e-12 -1 -1.0000000000000001e-15 -1 3.8830000000000003e-12</Rotation>
+<Translation>-0.10487369058454496 0.13971159778159792 0.36643578332036714</Translation>
+</Transform>
+</Instance>
+<Instance name="2826motor_drone_2-4" uid="2826motor_drone_2-4" entityUid="2826motor_drone_2*:*Default">
+<Transform>
+<Rotation>-1 -4.4241078681163284e-15 -1.7150139533246976e-15 1.7150139533418687e-15 -3.8823111392360943e-12 -1.0000000000000002 4.4241078681096861e-15 -1.0000000000000002 3.8823111392360943e-12</Rotation>
+<Translation>-0.10487369058446469 0.13971159778260256 0.62643578332016836</Translation>
+</Transform>
+</Instance>
+<Instance name="2826motor_drone_2-16" uid="2826motor_drone_2-16" entityUid="2826motor_drone_2*:*Default">
+<Transform>
+<Rotation>1 2.0000000000000002e-15 0 0 -3.8830000000000003e-12 1 2.0000000000000002e-15 -1 -3.8830000000000003e-12</Rotation>
+<Translation>-0.10487369058454496 0.17931159778159789 0.36643578332021343</Translation>
+</Transform>
+</Instance>
+<Instance name="2826motor_drone_2-15" uid="2826motor_drone_2-15" entityUid="2826motor_drone_2*:*Default">
+<Transform>
+<Rotation>1 7.1574230087254214e-15 1.7087658730461125e-15 -1.7087658730183147e-15 -3.882255628084863e-12 1.0000000000000002 7.1574230087322056e-15 -1.0000000000000002 -3.882255628084863e-12</Rotation>
+<Translation>0.25512630941553532 0.17931159778260181 0.62643578332001282</Translation>
+</Transform>
+</Instance>
 <Instance name="9x4.7V3_drone_2-16" uid="9x4.7V3_drone_2-16" entityUid="9x4.7V3_drone_2*:*Default">
 <Transform>
-<Rotation>0.8564973176829197 -1.8915788656951356e-15 -0.51615147466801203 0.06326818783540647 -0.99245903291656778 0.10498668672900908 -0.51225919338747583 -0.12257678402663111 -0.85003849960322486</Rotation>
-<Translation>-0.1071948015691416 0.10669220820573863 0.62579194442412189</Translation>
+<Rotation>0.85649731768291959 -1.7146676632506756e-15 -0.5161514746680127 -2.0052154381389195e-12 -1 -3.3241152271872867e-12 -0.5161514746680127 3.8820906811773271e-12 -0.85649731768291959</Rotation>
+<Translation>-0.10719480156914098 0.10701159778262528 0.63227123050083034</Translation>
+</Transform>
+</Instance>
+<Instance name="9x4.7V3_drone_2-14" uid="9x4.7V3_drone_2-14" entityUid="9x4.7V3_drone_2*:*Default">
+<Transform>
+<Rotation>-0.31208042154299348 2.2376685051554255e-16 0.95005568809914909 3.6886453535228029e-12 -1 1.2119055526146768e-12 0.95005568809914909 3.8826304952251188e-12 0.31208042154299348</Rotation>
+<Translation>-0.10692350009160675 0.10701159778157528 0.36049959927813496</Translation>
+</Transform>
+</Instance>
+<Instance name="9x4.7V3_drone_2-13" uid="9x4.7V3_drone_2-13" entityUid="9x4.7V3_drone_2*:*Default">
+<Transform>
+<Rotation>-0.99582073185325148 -2.5927827233247164e-16 0.091329458616891943 3.5489265422278326e-13 -1 3.8667719017861895e-12 0.091329458616891943 3.8830237791235902e-12 0.99582073185325148</Rotation>
+<Translation>0.25975836113197698 0.10701159778158187 0.36219501724636716</Translation>
 </Transform>
 </Instance>
 </InstanceTree>
@@ -539,7 +539,7 @@
 <Uid>moveableprop_2-1</Uid>
 <Uid>Gear48T_2-1</Uid>
 </InstancePath>
-<Position>0 0 -0.009999999999999995</Position>
+<Position>0 1.1102230246251565e-16 -0.009999999999999995</Position>
 <Axis>0 0 -0.99999999999999989</Axis>
 </ConstraintGeometry>
 </Coincident>
@@ -559,7 +559,7 @@
 <Uid>carbontube400mm_2-1</Uid>
 </InstancePath>
 <Position>0 0 0</Position>
-<Axis>0.99999999999999989 0 0</Axis>
+<Axis>1 0 0</Axis>
 </ConstraintGeometry>
 </Concentric>
 <Concentric name="Concentric2">
@@ -604,14 +604,14 @@
 <Uid>moveableprop_2-1</Uid>
 <Uid>Motor_2-3</Uid>
 </InstancePath>
-<Position>0 0 -0.01780000000000001</Position>
-<Axis>0 0 -1.0000000000000002</Axis>
+<Position>0 -1.1102230246251565e-16 -0.01780000000000001</Position>
+<Axis>0 -1.1102230246332345e-16 -1</Axis>
 </ConstraintGeometry>
 <ConstraintGeometry geomType="cylinder">
 <InstancePath>
 <Uid>2826motor_drone_2-17</Uid>
 </InstancePath>
-<Position>0 0 0.013100000000000001</Position>
+<Position>0 0 0.013100000000000028</Position>
 <Axis>0 0 1.0000000000000002</Axis>
 </ConstraintGeometry>
 </Concentric>
@@ -620,14 +620,14 @@
 <InstancePath>
 <Uid>2826motor_drone_2-17</Uid>
 </InstancePath>
-<Position>0 0 0.038200000000000012</Position>
+<Position>0 0 0.038200000000000039</Position>
 <Axis>0 0 1.0000000000000002</Axis>
 </ConstraintGeometry>
 <ConstraintGeometry geomType="cylinder">
 <InstancePath>
 <Uid>9x4.7V3_drone_2-8</Uid>
 </InstancePath>
-<Position>0.0050000000000000044 -0.00050000000000000044 0.0037999999999999146</Position>
+<Position>0.00500000000000006 -0.00050000000000000044 0.0038000000000000256</Position>
 <Axis>0 1 0</Axis>
 </ConstraintGeometry>
 </Concentric>
@@ -637,8 +637,8 @@
 <Uid>moveableprop_2-1</Uid>
 <Uid>Motor_2-3</Uid>
 </InstancePath>
-<Position>0 0 0.01980000000000004</Position>
-<Axis>0 0 1.0000000000000002</Axis>
+<Position>0 0 0.019800000000000012</Position>
+<Axis>0 1.1102230246332345e-16 1</Axis>
 </ConstraintGeometry>
 <ConstraintGeometry geomType="plane">
 <InstancePath>
@@ -654,14 +654,14 @@
 <Uid>moveableprop_2-1</Uid>
 <Uid>Motor_2-3</Uid>
 </InstancePath>
-<Position>0 0.0080000000000000071 -0.017799999999999983</Position>
-<Axis>0 0 -1.0000000000000002</Axis>
+<Position>0 0.0079999999999998961 -0.017799999999999983</Position>
+<Axis>0 -1.1102230246332345e-16 -1</Axis>
 </ConstraintGeometry>
 <ConstraintGeometry geomType="cylinder">
 <InstancePath>
 <Uid>2826motor_drone_2-17</Uid>
 </InstancePath>
-<Position>0 -0.0080000000000000071 0.0019999999999999463</Position>
+<Position>0 -0.0080000000000000071 0.0020000000000000018</Position>
 <Axis>0 0 -1.0000000000000002</Axis>
 </ConstraintGeometry>
 </Concentric>
@@ -670,14 +670,14 @@
 <InstancePath>
 <Uid>2826motor_drone_2-17</Uid>
 </InstancePath>
-<Position>0 0 0.032200000000000006</Position>
+<Position>0 0 0.032200000000000034</Position>
 <Axis>0 0 1.0000000000000002</Axis>
 </ConstraintGeometry>
 <ConstraintGeometry geomType="plane">
 <InstancePath>
 <Uid>9x4.7V3_drone_2-8</Uid>
 </InstancePath>
-<Position>0.0050000000000000044 -0.00050000000000000044 0.0037999999999999146</Position>
+<Position>0.00500000000000006 -0.00050000000000000044 0.0038000000000000256</Position>
 <Axis>0 -1 0</Axis>
 </ConstraintGeometry>
 </Coincident>
@@ -687,14 +687,14 @@
 <Uid>moveableprop_2-1</Uid>
 <Uid>Motor_2-3</Uid>
 </InstancePath>
-<Position>0 0 -0.01780000000000001</Position>
-<Axis>0 0 -1.0000000000000002</Axis>
+<Position>0 -1.1102230246251565e-16 -0.01780000000000001</Position>
+<Axis>0 -1.1102230246332345e-16 -1</Axis>
 </ConstraintGeometry>
 <ConstraintGeometry geomType="cylinder">
 <InstancePath>
 <Uid>2826motor_drone_2-4</Uid>
 </InstancePath>
-<Position>0 1.1102230246251565e-16 0.013100000000000001</Position>
+<Position>0 0 0.013100000000000001</Position>
 <Axis>0 0 1.0000000000000002</Axis>
 </ConstraintGeometry>
 </Concentric>
@@ -704,8 +704,8 @@
 <Uid>moveableprop_2-1</Uid>
 <Uid>Motor_2-3</Uid>
 </InstancePath>
-<Position>0 0 -0.019799999999999984</Position>
-<Axis>0 0 -1.0000000000000002</Axis>
+<Position>0 -1.1102230246251565e-16 -0.019800000000000012</Position>
+<Axis>0 -1.1102230246332345e-16 -1</Axis>
 </ConstraintGeometry>
 <ConstraintGeometry geomType="plane">
 <InstancePath>
@@ -721,14 +721,14 @@
 <Uid>moveableprop_2-1</Uid>
 <Uid>Motor_2-3</Uid>
 </InstancePath>
-<Position>0 0.0080000000000000071 -0.017799999999999983</Position>
-<Axis>0 0 -1.0000000000000002</Axis>
+<Position>0 0.0079999999999998961 -0.017799999999999983</Position>
+<Axis>0 -1.1102230246332345e-16 -1</Axis>
 </ConstraintGeometry>
 <ConstraintGeometry geomType="cylinder">
 <InstancePath>
 <Uid>2826motor_drone_2-4</Uid>
 </InstancePath>
-<Position>0 -0.0079999999999998961 0.0020000000000000018</Position>
+<Position>0 -0.0080000000000000071 0.0020000000000000018</Position>
 <Axis>0 0 -1.0000000000000002</Axis>
 </ConstraintGeometry>
 </Concentric>
@@ -737,14 +737,14 @@
 <InstancePath>
 <Uid>2826motor_drone_2-4</Uid>
 </InstancePath>
-<Position>0 0 0.038200000000000012</Position>
+<Position>0 -1.1102230246251565e-16 0.038200000000000012</Position>
 <Axis>0 0 1.0000000000000002</Axis>
 </ConstraintGeometry>
 <ConstraintGeometry geomType="cylinder">
 <InstancePath>
 <Uid>9x4.7V3_drone_2-16</Uid>
 </InstancePath>
-<Position>0.0050000000000000044 -0.0005000000000000282 0.0038000000000000811</Position>
+<Position>0.0050000000000000044 -0.00050000000000000044 0.0037999999999999701</Position>
 <Axis>0 1 0</Axis>
 </ConstraintGeometry>
 </Concentric>
@@ -753,14 +753,14 @@
 <InstancePath>
 <Uid>2826motor_drone_2-4</Uid>
 </InstancePath>
-<Position>0 1.1102230246251565e-16 0.032200000000000006</Position>
+<Position>0 0 0.032200000000000006</Position>
 <Axis>0 0 1.0000000000000002</Axis>
 </ConstraintGeometry>
 <ConstraintGeometry geomType="plane">
 <InstancePath>
 <Uid>9x4.7V3_drone_2-16</Uid>
 </InstancePath>
-<Position>0.0050000000000000044 -0.0005000000000000282 0.0038000000000000811</Position>
+<Position>0.0050000000000000044 -0.00050000000000000044 0.0037999999999999701</Position>
 <Axis>0 -1 0</Axis>
 </ConstraintGeometry>
 </Coincident>
@@ -1102,14 +1102,14 @@
 <Uid>moveableprop_2-1</Uid>
 <Uid>Motor_2-2</Uid>
 </InstancePath>
-<Position>0 -1.1102230246251565e-16 -0.01780000000000001</Position>
-<Axis>0 0 -1.0000000000000002</Axis>
+<Position>0 0 -0.01780000000000001</Position>
+<Axis>0 -1.1102230246332345e-16 -1</Axis>
 </ConstraintGeometry>
 <ConstraintGeometry geomType="cylinder">
 <InstancePath>
 <Uid>2826motor_drone_2-15</Uid>
 </InstancePath>
-<Position>0 0 0.013100000000000001</Position>
+<Position>0 0 0.013100000000000028</Position>
 <Axis>0 0 1.0000000000000002</Axis>
 </ConstraintGeometry>
 </Concentric>
@@ -1118,14 +1118,14 @@
 <InstancePath>
 <Uid>2826motor_drone_2-15</Uid>
 </InstancePath>
-<Position>0 0 0.038200000000000012</Position>
+<Position>0 0 0.038200000000000039</Position>
 <Axis>0 0 1.0000000000000002</Axis>
 </ConstraintGeometry>
 <ConstraintGeometry geomType="cylinder">
 <InstancePath>
 <Uid>9x4.7V3_drone_2-11</Uid>
 </InstancePath>
-<Position>0.0050000000000001155 -0.00050000000000000044 0.0038000000000000256</Position>
+<Position>0.0050000000000000044 -0.00050000000000000044 0.0038000000000000256</Position>
 <Axis>0 1.0000000000000002 0</Axis>
 </ConstraintGeometry>
 </Concentric>
@@ -1135,8 +1135,8 @@
 <Uid>moveableprop_2-1</Uid>
 <Uid>Motor_2-2</Uid>
 </InstancePath>
-<Position>0 0 0.019799999999999984</Position>
-<Axis>0 0 1.0000000000000002</Axis>
+<Position>0 1.1102230246251565e-16 0.019800000000000012</Position>
+<Axis>0 1.1102230246332345e-16 1</Axis>
 </ConstraintGeometry>
 <ConstraintGeometry geomType="plane">
 <InstancePath>
@@ -1151,14 +1151,14 @@
 <InstancePath>
 <Uid>2826motor_drone_2-15</Uid>
 </InstancePath>
-<Position>0 -1.1102230246251565e-16 0.032200000000000006</Position>
+<Position>0 0 0.032200000000000034</Position>
 <Axis>0 0 1.0000000000000002</Axis>
 </ConstraintGeometry>
 <ConstraintGeometry geomType="plane">
 <InstancePath>
 <Uid>9x4.7V3_drone_2-11</Uid>
 </InstancePath>
-<Position>0.0050000000000001155 -0.00050000000000000044 0.0038000000000000256</Position>
+<Position>0.0050000000000000044 -0.00050000000000000044 0.0038000000000000256</Position>
 <Axis>0 -1.0000000000000002 0</Axis>
 </ConstraintGeometry>
 </Coincident>
@@ -1168,14 +1168,14 @@
 <Uid>moveableprop_2-1</Uid>
 <Uid>Motor_2-2</Uid>
 </InstancePath>
-<Position>0.0094999999999999807 0 -0.017799999999999983</Position>
-<Axis>0 0 -1.0000000000000002</Axis>
+<Position>0.0095000000000000084 1.1102230246251565e-16 -0.01780000000000001</Position>
+<Axis>0 -1.1102230246332345e-16 -1</Axis>
 </ConstraintGeometry>
 <ConstraintGeometry geomType="cylinder">
 <InstancePath>
 <Uid>2826motor_drone_2-15</Uid>
 </InstancePath>
-<Position>-0.0094999999999999807 0 0.0020000000000000018</Position>
+<Position>-0.0094999999999999807 1.1102230246251565e-16 0.0020000000000000018</Position>
 <Axis>0 0 -1.0000000000000002</Axis>
 </ConstraintGeometry>
 </Concentric>
@@ -1185,8 +1185,8 @@
 <Uid>moveableprop_2-1</Uid>
 <Uid>Motor_2-2</Uid>
 </InstancePath>
-<Position>0 0 -0.019799999999999984</Position>
-<Axis>0 0 -1.0000000000000002</Axis>
+<Position>0 0 -0.019800000000000012</Position>
+<Axis>0 -1.1102230246332345e-16 -1</Axis>
 </ConstraintGeometry>
 <ConstraintGeometry geomType="plane">
 <InstancePath>
@@ -1202,14 +1202,14 @@
 <Uid>moveableprop_2-1</Uid>
 <Uid>Motor_2-2</Uid>
 </InstancePath>
-<Position>0 -0.0079999999999998961 -0.017800000000000038</Position>
-<Axis>0 0 -1.0000000000000002</Axis>
+<Position>0 -0.0079999999999998961 -0.01780000000000001</Position>
+<Axis>0 -1.1102230246332345e-16 -1</Axis>
 </ConstraintGeometry>
 <ConstraintGeometry geomType="cylinder">
 <InstancePath>
 <Uid>2826motor_drone_2-14</Uid>
 </InstancePath>
-<Position>0 0.0080000000000000071 0.001999999999999974</Position>
+<Position>0 0.0080000000000000071 0.0020000000000000018</Position>
 <Axis>0 0 -1.0000000000000002</Axis>
 </ConstraintGeometry>
 </Concentric>
@@ -1219,14 +1219,14 @@
 <Uid>moveableprop_2-1</Uid>
 <Uid>Motor_2-2</Uid>
 </InstancePath>
-<Position>-0.0095000000000000639 -1.1102230246251565e-16 -0.017799999999999983</Position>
-<Axis>0 0 -1.0000000000000002</Axis>
+<Position>-0.0095000000000000084 0 -0.01780000000000001</Position>
+<Axis>0 -1.1102230246332345e-16 -1</Axis>
 </ConstraintGeometry>
 <ConstraintGeometry geomType="cylinder">
 <InstancePath>
 <Uid>2826motor_drone_2-14</Uid>
 </InstancePath>
-<Position>-0.0094999999999999529 0 0.0020000000000000018</Position>
+<Position>-0.0095000000000000084 0 0.0020000000000000295</Position>
 <Axis>0 0 -1.0000000000000002</Axis>
 </ConstraintGeometry>
 </Concentric>
@@ -1235,14 +1235,14 @@
 <InstancePath>
 <Uid>2826motor_drone_2-14</Uid>
 </InstancePath>
-<Position>0 1.1102230246251565e-16 0.038200000000000012</Position>
+<Position>0 0 0.038200000000000012</Position>
 <Axis>0 0 1.0000000000000002</Axis>
 </ConstraintGeometry>
 <ConstraintGeometry geomType="cylinder">
 <InstancePath>
 <Uid>9x4.7V3_drone_2-12</Uid>
 </InstancePath>
-<Position>0.0049999999999999767 -0.0005000000000000282 0.0038000000000001366</Position>
+<Position>0.0049999999999999767 -0.00050000000000001432 0.0038000000000000256</Position>
 <Axis>0 1 0</Axis>
 </ConstraintGeometry>
 </Concentric>
@@ -1251,27 +1251,27 @@
 <InstancePath>
 <Uid>2826motor_drone_2-14</Uid>
 </InstancePath>
-<Position>0 0 0.032199999999999979</Position>
+<Position>0 0 0.032200000000000006</Position>
 <Axis>0 0 1.0000000000000002</Axis>
 </ConstraintGeometry>
 <ConstraintGeometry geomType="plane">
 <InstancePath>
 <Uid>9x4.7V3_drone_2-12</Uid>
 </InstancePath>
-<Position>0.0049999999999999767 -0.0005000000000000282 0.0038000000000001366</Position>
+<Position>0.0049999999999999767 -0.00050000000000001432 0.0038000000000000256</Position>
 <Axis>0 -1 0</Axis>
 </ConstraintGeometry>
 </Coincident>
 </Constraints>
 </RootAssembly>
 <Assemblies>
-<Assembly name="moveableprop_2" uid="moveableprop_2" version="105">
-<ModelUnits mass="kilogram" length="millimeter"/>
-<AssemblyFile name="moveableprop_2.SLDASM" type="SolidWorks Assembly"/>
-</Assembly>
 <Assembly name="centerstruc_2" uid="centerstruc_2" version="105">
 <ModelUnits mass="kilogram" length="millimeter"/>
 <AssemblyFile name="centerstruc_2.SLDASM" type="SolidWorks Assembly"/>
+</Assembly>
+<Assembly name="efom-10_2" uid="efom-10_2" version="105">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<AssemblyFile name="efom-10_2.SLDASM" type="SolidWorks Assembly"/>
 </Assembly>
 <Assembly name="ASM0001_ASM_2" uid="ASM0001_ASM_2" version="103">
 <ModelUnits mass="kilogram" length="millimeter"/>
@@ -1281,9 +1281,9 @@
 <ModelUnits mass="kilogram" length="millimeter"/>
 <AssemblyFile name="ASM0002_ASM_1.SLDASM" type="SolidWorks Assembly"/>
 </Assembly>
-<Assembly name="efom-10_2" uid="efom-10_2" version="105">
+<Assembly name="moveableprop_2" uid="moveableprop_2" version="105">
 <ModelUnits mass="kilogram" length="millimeter"/>
-<AssemblyFile name="efom-10_2.SLDASM" type="SolidWorks Assembly"/>
+<AssemblyFile name="moveableprop_2.SLDASM" type="SolidWorks Assembly"/>
 </Assembly>
 <Assembly name="platform_2" uid="platform_2" version="104">
 <ModelUnits mass="kilogram" length="millimeter"/>
@@ -1317,8 +1317,8 @@
 <PartFile name="9x4.7V3_drone_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
 <Mass>0.0055606809348752598</Mass>
-<CenterOfMass>0.0049999988014955664 0.0049479894151874034 0.0037999900067594784</CenterOfMass>
-<Inertia>1.9089753680462342e-05 1.9829040341171998e-05 7.7794061746637121e-07 -5.3396495118072814e-13 3.4212560501649692e-06 4.5555372846479508e-13</Inertia>
+<CenterOfMass>0.0049999988014955664 0.0049479894151874034 0.0037999900067594793</CenterOfMass>
+<Inertia>1.9089753680462342e-05 1.9829040341171998e-05 7.7794061746637121e-07 -5.3396495117924846e-13 3.4212560501649692e-06 4.5555372846577099e-13</Inertia>
 </MassProperties>
 <GeometryFile name="9x4.7V3_drone_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
@@ -1333,9 +1333,9 @@
 <ModelUnits mass="kilogram" length="millimeter"/>
 <PartFile name="BearingConnect_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
-<Mass>0.01442080959710385</Mass>
-<CenterOfMass>-0.04260781734632485 1.4786004725875995e-08 -0.015571842985307392</CenterOfMass>
-<Inertia>4.9417628654251217e-06 1.7663342017290313e-06 3.9984834579482173e-06 -3.6490870087240038e-12 -2.060357509869999e-07 2.4534423385807416e-12</Inertia>
+<Mass>0.014420809597103847</Mass>
+<CenterOfMass>-0.042607817346324843 1.4786004725942322e-08 -0.015571842985307394</CenterOfMass>
+<Inertia>4.9417628654251217e-06 1.7663342017290313e-06 3.9984834579482173e-06 -3.6490870086713534e-12 -2.0603575098699998e-07 2.4534423386107515e-12</Inertia>
 </MassProperties>
 <GeometryFile name="BearingConnect_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
@@ -1350,9 +1350,9 @@
 <ModelUnits mass="kilogram" length="millimeter"/>
 <PartFile name="Bearing_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
-<Mass>0.0007025722904338786</Mass>
-<CenterOfMass>4.0164997754563252e-08 0.0070999429141330398 1.246851435134694e-08</CenterOfMass>
-<Inertia>2.0052168652804395e-08 1.6498334454059867e-08 2.0050623457073935e-08 9.8632018418327947e-15 -4.825583115022823e-13 5.5378002240882912e-14</Inertia>
+<Mass>0.00070257229043387871</Mass>
+<CenterOfMass>4.0164997754572113e-08 0.0070999429141330389 1.2468514351376834e-08</CenterOfMass>
+<Inertia>2.0052168652804392e-08 1.6498334454059867e-08 2.0050623457073931e-08 9.8632018419703942e-15 -4.825583115022823e-13 5.5378002240860634e-14</Inertia>
 </MassProperties>
 <GeometryFile name="Bearing_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
@@ -1367,9 +1367,9 @@
 <ModelUnits mass="kilogram" length="millimeter"/>
 <PartFile name="Body_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
-<Mass>0.0010876250990096397</Mass>
-<CenterOfMass>-6.9373552007258608e-07 0.0070999324871233579 -1.0173244826459957e-06</CenterOfMass>
-<Inertia>5.0944565861377583e-08 5.1138941246485539e-08 5.0998798833209099e-08 3.004898550308001e-12 2.832923249415167e-12 3.5409458214729828e-12</Inertia>
+<Mass>0.0010876250990096393</Mass>
+<CenterOfMass>-6.9373552007257751e-07 0.0070999324871233596 -1.0173244826463762e-06</CenterOfMass>
+<Inertia>5.0944565861377583e-08 5.1138941246485545e-08 5.0998798833209106e-08 3.0048985503079501e-12 2.8329232494151674e-12 3.5409458214730079e-12</Inertia>
 </MassProperties>
 <GeometryFile name="Body_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
@@ -1384,9 +1384,9 @@
 <ModelUnits mass="kilogram" length="millimeter"/>
 <PartFile name="F3.stp_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
-<Mass>0.0032062920165410879</Mass>
-<CenterOfMass>-1.746084594719273e-05 0.002397298250175762 -2.5430110978021067e-07</CenterOfMass>
-<Inertia>4.7203495433535596e-07 6.5213207600222343e-07 2.0136259530406954e-07 2.9098635201506317e-12 2.6852997015850599e-12 1.2752295902202425e-10</Inertia>
+<Mass>0.0032062920165410887</Mass>
+<CenterOfMass>-1.7460845947192642e-05 0.0023972982501757624 -2.5430110977976317e-07</CenterOfMass>
+<Inertia>4.7203495433535596e-07 6.5213207600222321e-07 2.0136259530406944e-07 2.9098635201492306e-12 2.685299701580592e-12 1.2752295902202428e-10</Inertia>
 </MassProperties>
 <GeometryFile name="F3.stp_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
@@ -1402,8 +1402,8 @@
 <PartFile name="Gear36T_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
 <Mass>0.018336905649835252</Mass>
-<CenterOfMass>3.1857143981321437e-07 -1.0791288782933267e-07 2.9703511241422105e-09</CenterOfMass>
-<Inertia>2.2432834113320681e-06 2.2432833904530761e-06 3.2640885080786229e-06 0 0 -8.5098202681899057e-15</Inertia>
+<CenterOfMass>3.1857143981303956e-07 -1.0791288782930728e-07 2.9703511234204483e-09</CenterOfMass>
+<Inertia>2.2432834113320677e-06 2.2432833904530761e-06 3.2640885080786229e-06 0 0 -8.5098202912115269e-15</Inertia>
 </MassProperties>
 <GeometryFile name="Gear36T_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
@@ -1419,8 +1419,8 @@
 <PartFile name="Gear48T_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
 <Mass>0.036230889790155957</Mass>
-<CenterOfMass>0.00025298565268754188 -5.8774095572591714e-06 0.0010065125673796851</CenterOfMass>
-<Inertia>6.8224814751546413e-06 6.8876877088714377e-06 1.0442457035195428e-05 2.9798161778345678e-09 -6.8511386777025867e-08 1.862602081988234e-09</Inertia>
+<CenterOfMass>0.00025298565268754193 -5.8774095572593629e-06 0.0010065125673796851</CenterOfMass>
+<Inertia>6.8224814751546421e-06 6.8876877088714368e-06 1.044245703519543e-05 2.9798161778345099e-09 -6.8511386777025854e-08 1.8626020819881496e-09</Inertia>
 </MassProperties>
 <GeometryFile name="Gear48T_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
@@ -1435,9 +1435,9 @@
 <ModelUnits mass="kilogram" length="millimeter"/>
 <PartFile name="Motor_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
-<Mass>0.028505686044522898</Mass>
-<CenterOfMass>-9.4660965369318896e-10 -1.4699869563516441e-05 -0.00051578599150259221</CenterOfMass>
-<Inertia>7.0716174942586876e-06 1.3013389259246925e-05 1.0184622462969092e-05 -3.555049828481063e-09 4.6080747427297215e-14 -1.2237458854250428e-13</Inertia>
+<Mass>0.028505686044522895</Mass>
+<CenterOfMass>-9.4660965369318917e-10 -1.4699869563516495e-05 -0.0005157859915025921</CenterOfMass>
+<Inertia>7.0716174942586876e-06 1.3013389259246925e-05 1.0184622462969092e-05 -3.5550498284810118e-09 4.6080747579498447e-14 -1.2237458853816159e-13</Inertia>
 </MassProperties>
 <GeometryFile name="Motor_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
@@ -1452,9 +1452,9 @@
 <ModelUnits mass="kilogram" length="millimeter"/>
 <PartFile name="PRT0001_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
-<Mass>0.040743418683390181</Mass>
-<CenterOfMass>-3.3854608216320676e-05 -0.013188759142817167 0.00053565976621925587</CenterOfMass>
-<Inertia>1.1457926490484401e-05 6.2448461663397583e-06 9.9375832963661299e-06 1.909456547005128e-07 1.4700863968805898e-09 -1.0423726361031057e-08</Inertia>
+<Mass>0.040743418683390174</Mass>
+<CenterOfMass>-3.3854608216320995e-05 -0.013188759142817166 0.00053565976621925619</CenterOfMass>
+<Inertia>1.1457926490484405e-05 6.2448461663397583e-06 9.937583296366135e-06 1.9094565470051275e-07 1.4700863968806181e-09 -1.0423726361031136e-08</Inertia>
 </MassProperties>
 <GeometryFile name="PRT0001_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
@@ -1469,9 +1469,9 @@
 <ModelUnits mass="kilogram" length="millimeter"/>
 <PartFile name="PRT0002_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
-<Mass>0.00010237877761511088</Mass>
-<CenterOfMass>-2.8269951605500844e-07 -1.7857373782200726e-05 0.017579820181723767</CenterOfMass>
-<Inertia>4.3630318151027839e-10 4.3240658111093487e-10 5.0842319528627269e-10 5.1703879670245485e-12 -4.752066385000741e-14 1.2894408736614115e-15</Inertia>
+<Mass>0.00010237877761511087</Mass>
+<CenterOfMass>-2.8269951605500426e-07 -1.7857373782200723e-05 0.017579820181723767</CenterOfMass>
+<Inertia>4.3630318151027839e-10 4.3240658111093492e-10 5.0842319528627279e-10 5.1703879670245485e-12 -4.7520663850008111e-14 1.2894408736613097e-15</Inertia>
 </MassProperties>
 <GeometryFile name="PRT0002_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
@@ -1486,9 +1486,9 @@
 <ModelUnits mass="kilogram" length="millimeter"/>
 <PartFile name="PRT0003_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
-<Mass>7.2622402343580473e-05</Mass>
-<CenterOfMass>6.5828217237487755e-08 -0.014441062991459299 -1.6877058286150531e-08</CenterOfMass>
-<Inertia>6.7646084379787064e-09 3.3488275945531551e-11 6.7646027941690265e-09 5.3728014484841157e-14 -4.5680994085770215e-15 -5.8248696682289381e-14</Inertia>
+<Mass>7.262240234358046e-05</Mass>
+<CenterOfMass>6.5828217237475618e-08 -0.014441062991459299 -1.6877058286156097e-08</CenterOfMass>
+<Inertia>6.7646084379787047e-09 3.3488275945531551e-11 6.7646027941690257e-09 5.372801448483496e-14 -4.5680994085766113e-15 -5.8248696682281745e-14</Inertia>
 </MassProperties>
 <GeometryFile name="PRT0003_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
@@ -1503,9 +1503,9 @@
 <ModelUnits mass="kilogram" length="millimeter"/>
 <PartFile name="PRT0004_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
-<Mass>0.00015483588989228023</Mass>
-<CenterOfMass>0.00019011496068875014 -0.00061010783035634231 -0.00016217855674064815</CenterOfMass>
-<Inertia>8.9023425756641633e-10 1.6954790304603486e-09 1.8024945050337843e-09 -2.9361123820263558e-11 5.1680704717524079e-11 -1.8247229294646495e-11</Inertia>
+<Mass>0.00015483588989228026</Mass>
+<CenterOfMass>0.00019011496068875006 -0.00061010783035634274 -0.00016217855674064812</CenterOfMass>
+<Inertia>8.9023425756641643e-10 1.6954790304603482e-09 1.8024945050337839e-09 -2.936112382026361e-11 5.1680704717524066e-11 -1.8247229294646508e-11</Inertia>
 </MassProperties>
 <GeometryFile name="PRT0004_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
@@ -1521,8 +1521,8 @@
 <PartFile name="PRT0005_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
 <Mass>8.9192929849576144e-05</Mass>
-<CenterOfMass>1.1885714747411209e-13 0.0037144078408547581 -7.9537565586520646e-15</CenterOfMass>
-<Inertia>5.1170021775199663e-10 3.2673618236910214e-10 5.1169834404204572e-10 0 0 0</Inertia>
+<CenterOfMass>1.1885706369964133e-13 0.0037144078408547581 -7.9537622190892787e-15</CenterOfMass>
+<Inertia>5.1170021775199684e-10 3.2673618236910214e-10 5.1169834404204593e-10 0 0 0</Inertia>
 </MassProperties>
 <GeometryFile name="PRT0005_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
@@ -1537,9 +1537,9 @@
 <ModelUnits mass="kilogram" length="millimeter"/>
 <PartFile name="PRT0006_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
-<Mass>0.0011884415100352269</Mass>
-<CenterOfMass>-7.3414534221121461e-06 -1.3595534991731972e-09 -0.00017747605169134378</CenterOfMass>
-<Inertia>3.7872113153884621e-08 3.7681253222663313e-08 7.0579437939010491e-08 0 -2.3356892202423498e-13 5.0605902164367321e-14</Inertia>
+<Mass>0.0011884415100352267</Mass>
+<CenterOfMass>-7.3414534221121359e-06 -1.3595534989703045e-09 -0.00017747605169134327</CenterOfMass>
+<Inertia>3.7872113153884614e-08 3.7681253222663313e-08 7.0579437939010491e-08 0 -2.3356892202419555e-13 5.0605902164785682e-14</Inertia>
 </MassProperties>
 <GeometryFile name="PRT0006_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
@@ -1555,8 +1555,8 @@
 <PartFile name="PRT0007_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
 <Mass>6.8802926317002131e-05</Mass>
-<CenterOfMass>-1.2375590841922628e-08 -0.0022076112921413002 1.9608425963886085e-08</CenterOfMass>
-<Inertia>6.368052224238766e-10 1.2892083059196843e-10 6.3683371104078351e-10 8.6822749836376598e-15 0 9.882540589070268e-16</Inertia>
+<CenterOfMass>-1.2375590841934369e-08 -0.0022076112921413002 1.9608425963909563e-08</CenterOfMass>
+<Inertia>6.368052224238766e-10 1.2892083059196843e-10 6.3683371104078351e-10 8.6822749836455925e-15 0 9.8825405890621526e-16</Inertia>
 </MassProperties>
 <GeometryFile name="PRT0007_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
@@ -1571,9 +1571,9 @@
 <ModelUnits mass="kilogram" length="millimeter"/>
 <PartFile name="Part13_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
-<Mass>0.0033301276460146476</Mass>
-<CenterOfMass>-5.4492017059623536e-05 0.0036439916077786062 0.005000000919468903</CenterOfMass>
-<Inertia>2.1496560338040531e-07 1.3511424961031721e-07 2.9167241479371697e-07 -7.2309517063224591e-14 -7.2997850768678534e-15 1.1536360221986694e-09</Inertia>
+<Mass>0.0033301276460146472</Mass>
+<CenterOfMass>-5.4492017059623421e-05 0.0036439916077786066 0.0050000009194689022</CenterOfMass>
+<Inertia>2.1496560338040537e-07 1.3511424961031718e-07 2.9167241479371703e-07 -7.2309517063258998e-14 -7.2997850768479993e-15 1.1536360221986697e-09</Inertia>
 </MassProperties>
 <GeometryFile name="Part13_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
@@ -1588,7 +1588,7 @@
 <ModelUnits mass="kilogram" length="millimeter"/>
 <PartFile name="Part1_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
-<Mass>0.0031101767270538968</Mass>
+<Mass>0.0031101767270538963</Mass>
 <CenterOfMass>0 0 0</CenterOfMass>
 <Inertia>3.1679741778983138e-06 3.1679741778983138e-06 6.3758622904604891e-08 0 0 0</Inertia>
 </MassProperties>
@@ -1605,9 +1605,9 @@
 <ModelUnits mass="kilogram" length="millimeter"/>
 <PartFile name="carbontube400mm_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
-<Mass>0.011592476891746332</Mass>
+<Mass>0.011592476891746336</Mass>
 <CenterOfMass>0 0 0</CenterOfMass>
-<Inertia>2.3764577628079999e-07 0.00016251010334668704 0.00016251010334668704 0 0 0</Inertia>
+<Inertia>2.3764577628080004e-07 0.00016251010334668702 0.00016251010334668702 0 0 0</Inertia>
 </MassProperties>
 <GeometryFile name="carbontube400mm_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
@@ -1641,7 +1641,7 @@
 <MassProperties>
 <Mass>0.016752709785414807</Mass>
 <CenterOfMass>-2.6546826067782391e-05 -2.6522911441374388e-05 -0.0080112278486960675</CenterOfMass>
-<Inertia>3.8196416532630241e-06 3.8188224744339169e-06 1.6649809262205885e-06 7.5137420215938816e-09 -7.4950809951429688e-09 1.5907225914470508e-11</Inertia>
+<Inertia>3.8196416532630241e-06 3.8188224744339169e-06 1.6649809262205885e-06 7.5137420215938816e-09 -7.4950809951429655e-09 1.5907225914470508e-11</Inertia>
 </MassProperties>
 <GeometryFile name="connector1_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
@@ -1657,8 +1657,8 @@
 <PartFile name="efom-10_01_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
 <Mass>0.00091166904487967727</Mass>
-<CenterOfMass>-3.9148314762400821e-07 -1.3031479551920145e-08 0.0075001399320328167</CenterOfMass>
-<Inertia>2.4140490052478036e-08 2.4113591257952395e-08 3.8010235696285309e-08 -1.1771170303878397e-13 1.2590105552452121e-12 8.092590802497995e-13</Inertia>
+<CenterOfMass>-3.9148314762389476e-07 -1.3031479551920142e-08 0.0075001399320328167</CenterOfMass>
+<Inertia>2.4140490052478036e-08 2.4113591257952395e-08 3.8010235696285309e-08 -1.1771170303878395e-13 1.2590105552452121e-12 8.092590802497995e-13</Inertia>
 </MassProperties>
 <GeometryFile name="efom-10_01_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
@@ -1674,8 +1674,8 @@
 <PartFile name="efom-10_02_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
 <Mass>0.0041664453642731147</Mass>
-<CenterOfMass>8.0048450472274186e-09 4.1028830769928947e-10 0.0043614626833815718</CenterOfMass>
-<Inertia>1.9996391545737528e-07 7.753288723032211e-07 9.2251593967406116e-07 9.3304859144613735e-15 1.755749979938328e-13 7.8864090348532443e-14</Inertia>
+<CenterOfMass>8.0048450472850995e-09 4.1028830778614803e-10 0.0043614626833815718</CenterOfMass>
+<Inertia>1.999639154573753e-07 7.7532887230322099e-07 9.2251593967406105e-07 9.3304859126185944e-15 1.7557499799413772e-13 7.8864090355009445e-14</Inertia>
 </MassProperties>
 <GeometryFile name="efom-10_02_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
@@ -1724,9 +1724,9 @@
 <ModelUnits mass="kilogram" length="millimeter"/>
 <PartFile name="updownconnect_2.SLDPRT" type="SolidWorks Part"/>
 <MassProperties>
-<Mass>0.021844156655249743</Mass>
-<CenterOfMass>0.00023630565891324614 -0.019852296745393232 0.019307693154902841</CenterOfMass>
-<Inertia>4.3891536186375156e-05 4.3704293594572299e-05 1.1506331996324648e-06 -3.5830621430572549e-07 -1.4542924607855062e-07 -8.5225899629782527e-10</Inertia>
+<Mass>0.021844156655249733</Mass>
+<CenterOfMass>0.00023630565891324669 -0.019852296745393228 0.019307693154902824</CenterOfMass>
+<Inertia>4.3891536186375156e-05 4.3704293594572306e-05 1.1506331996324648e-06 -3.5830621430572809e-07 -1.4542924607855086e-07 -8.5225899629781286e-10</Inertia>
 </MassProperties>
 <GeometryFile name="updownconnect_2_Default_sldprt.STEP" type="STEP"/>
 <VisualProperties>
