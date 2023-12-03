@@ -753,7 +753,7 @@ smiData.Solid(26).ID = "";
 
 %Inertia Type - Custom
 %Visual Properties - Simple
-smiData.Solid(1).mass = 0.0031101767270538963;  % kg
+smiData.Solid(1).mass = 0.015;  % kg
 smiData.Solid(1).CoM = [0 0 0];  % mm
 smiData.Solid(1).MoI = [3.1679741778983139 3.1679741778983139 0.063758622904604892];  % kg*mm^2
 smiData.Solid(1).PoI = [0 0 0];  % kg*mm^2
@@ -763,7 +763,8 @@ smiData.Solid(1).ID = "Part1_2*:*Default";
 
 %Inertia Type - Custom
 %Visual Properties - Simple
-smiData.Solid(2).mass = 0.01837831702350029;  % kg
+% smiData.Solid(2).mass = 0.01837831702350029;  % kg
+smiData.Solid(2).mass = 0.038;  % kg
 smiData.Solid(2).CoM = [0 324.99999999999989 0];  % mm
 smiData.Solid(2).MoI = [647.25828961856394 0.37675549898175614 647.25828961856394];  % kg*mm^2
 smiData.Solid(2).PoI = [0 0 0];  % kg*mm^2
@@ -773,7 +774,8 @@ smiData.Solid(2).ID = "carbontube500mm_2*:*Default";
 
 %Inertia Type - Custom
 %Visual Properties - Simple
-smiData.Solid(3).mass = 0.011592476891746336;  % kg
+% smiData.Solid(3).mass = 0.011592476891746336;  % kg
+smiData.Solid(3).mass = 0.025;
 smiData.Solid(3).CoM = [0 0 0];  % mm
 smiData.Solid(3).MoI = [0.23764577628080005 162.510103346687 162.510103346687];  % kg*mm^2
 smiData.Solid(3).PoI = [0 0 0];  % kg*mm^2
@@ -883,7 +885,7 @@ smiData.Solid(13).ID = "PRT0002_2*:*Default";
 
 %Inertia Type - Custom
 %Visual Properties - Simple
-smiData.Solid(14).mass = 0.021844156655249733;  % kg
+smiData.Solid(14).mass = 0.04;  % kg
 smiData.Solid(14).CoM = [0.23630565891324667 -19.852296745393229 19.307693154902825];  % mm
 smiData.Solid(14).MoI = [43.891536186375156 43.704293594572306 1.1506331996324648];  % kg*mm^2
 smiData.Solid(14).PoI = [-0.35830621430572807 -0.14542924607855087 -0.00085225899629781286];  % kg*mm^2
@@ -903,7 +905,7 @@ smiData.Solid(15).ID = "Motor_2*:*Default";
 
 %Inertia Type - Custom
 %Visual Properties - Simple
-smiData.Solid(16).mass = 0.049299062832717504;  % kg
+smiData.Solid(16).mass = 0.04;  % kg
 smiData.Solid(16).CoM = [-0.0023253718168620109 1.7200264229837048 7.0490095229595067];  % mm
 smiData.Solid(16).MoI = [9.7742260444172615 78.078255944054078 76.084865355565611];  % kg*mm^2
 smiData.Solid(16).PoI = [-0.57686489822313736 0.95473619982308355 0.15988234630258072];  % kg*mm^2
@@ -913,7 +915,7 @@ smiData.Solid(16).ID = "servoconnect_tubes_2*:*Default";
 
 %Inertia Type - Custom
 %Visual Properties - Simple
-smiData.Solid(17).mass = 0.016752709785414807;  % kg
+smiData.Solid(17).mass = 0.012;  % kg
 smiData.Solid(17).CoM = [-0.02654682606778239 -0.026522911441374388 -8.011227848696068];  % mm
 smiData.Solid(17).MoI = [3.819641653263024 3.818822474433917 1.6649809262205886];  % kg*mm^2
 smiData.Solid(17).PoI = [0.0075137420215938815 -0.0074950809951429657 1.590722591447051e-05];  % kg*mm^2
@@ -953,7 +955,7 @@ smiData.Solid(20).ID = "Gear48T_2*:*Default";
 
 %Inertia Type - Custom
 %Visual Properties - Simple
-smiData.Solid(21).mass = 0.016993588082305378;  % kg
+smiData.Solid(21).mass = 0.051;  % kg
 smiData.Solid(21).CoM = [0 0 14.448068593888618];  % mm
 smiData.Solid(21).MoI = [2.1580646814808997 2.1565802789520787 1.5295412957107934];  % kg*mm^2
 smiData.Solid(21).PoI = [0 0 0];  % kg*mm^2
@@ -983,7 +985,7 @@ smiData.Solid(23).ID = "Bearing_2*:*Default";
 
 %Inertia Type - Custom
 %Visual Properties - Simple
-smiData.Solid(24).mass = 0.0032062920165410887;  % kg
+smiData.Solid(24).mass = 0.01;  % kg
 smiData.Solid(24).CoM = [-0.017460845947192643 2.3972982501757625 -0.00025430110977976315];  % mm
 smiData.Solid(24).MoI = [0.47203495433535597 0.65213207600222323 0.20136259530406944];  % kg*mm^2
 smiData.Solid(24).PoI = [2.9098635201492308e-06 2.685299701580592e-06 0.00012752295902202429];  % kg*mm^2
@@ -993,7 +995,7 @@ smiData.Solid(24).ID = "F3.stp_2*:*Default";
 
 %Inertia Type - Custom
 %Visual Properties - Simple
-smiData.Solid(25).mass = 0.26679933488468932;  % kg
+smiData.Solid(25).mass = 0.7;  % kg
 smiData.Solid(25).CoM = [-0.015965580702455497 -13.143461824376269 -5.8369219842920552];  % mm
 smiData.Solid(25).MoI = [592.8242028075922 154.86998681566303 665.86226350335107];  % kg*mm^2
 smiData.Solid(25).PoI = [0.9776348747875131 0.067459052854277515 -0.18753210289669373];  % kg*mm^2
@@ -1003,7 +1005,7 @@ smiData.Solid(25).ID = "platform-0_2*:*Default";
 
 %Inertia Type - Custom
 %Visual Properties - Simple
-smiData.Solid(26).mass = 0.0055606809348752598;  % kg
+smiData.Solid(26).mass = 0.0255606809348752598;  % kg
 smiData.Solid(26).CoM = [4.9999988014955665 4.9479894151874033 3.7999900067594794];  % mm
 smiData.Solid(26).MoI = [19.089753680462341 19.829040341172 0.77794061746637122];  % kg*mm^2
 smiData.Solid(26).PoI = [-5.3396495117924849e-07 3.4212560501649691 4.5555372846577097e-07];  % kg*mm^2
