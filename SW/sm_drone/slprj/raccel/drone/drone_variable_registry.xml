@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/slsa_mm_parameter_tuning/R2021b">
+  <slsa.mm.parametertuning.VariableRegistry type="slsa.mm.parametertuning.VariableRegistry" uuid="39674b43-ad8d-4835-91d4-ce30bbfab74b">
+    <defaultValueCachePath>H:\Courses_files\Master\2023_Fall\drone\SpecialCourseDrone\SW\sm_drone\slprj\raccel\drone\drone_default_variable_values.mat</defaultValueCachePath>
+    <name>drone</name>
+    <variables type="slsa.mm.parametertuning.Variable" uuid="7f1375d9-e7af-4aa1-be56-ba5071f3432e">
+      <name>I</name>
+      <workspace type="slsa.mm.parametertuning.Workspace" uuid="36377535-10db-47b9-8dee-60cc372b755b"/>
+    </variables>
+    <variables type="slsa.mm.parametertuning.Variable" uuid="beb724c0-eece-4e9c-a066-b998e3c1548d">
+      <name>controlmatrix</name>
+      <workspace type="slsa.mm.parametertuning.Workspace" uuid="36377535-10db-47b9-8dee-60cc372b755b"/>
+    </variables>
+    <variables type="slsa.mm.parametertuning.Variable" uuid="60af5bcc-7c0b-47c5-8458-fe5ef5a431fc">
+      <name>total_mass</name>
+      <workspace type="slsa.mm.parametertuning.Workspace" uuid="36377535-10db-47b9-8dee-60cc372b755b"/>
+    </variables>
+    <variables type="slsa.mm.parametertuning.Variable" uuid="a8c159fe-f00a-4154-bf64-b6acea69ab32">
+      <name>g</name>
+      <workspace type="slsa.mm.parametertuning.Workspace" uuid="36377535-10db-47b9-8dee-60cc372b755b"/>
+    </variables>
+    <variables type="slsa.mm.parametertuning.Variable" uuid="5c67baf9-9bcc-4470-830f-8c2f759efd10">
+      <name>neutraldynamicaxis</name>
+      <workspace type="slsa.mm.parametertuning.Workspace" uuid="36377535-10db-47b9-8dee-60cc372b755b"/>
+    </variables>
+    <workspaces type="slsa.mm.parametertuning.Workspace" uuid="36377535-10db-47b9-8dee-60cc372b755b">
+      <name>global-workspace</name>
+      <variables type="slsa.mm.parametertuning.Variable" uuid="7f1375d9-e7af-4aa1-be56-ba5071f3432e"/>
+      <variables type="slsa.mm.parametertuning.Variable" uuid="beb724c0-eece-4e9c-a066-b998e3c1548d"/>
+      <variables type="slsa.mm.parametertuning.Variable" uuid="60af5bcc-7c0b-47c5-8458-fe5ef5a431fc"/>
+      <variables type="slsa.mm.parametertuning.Variable" uuid="a8c159fe-f00a-4154-bf64-b6acea69ab32"/>
+      <variables type="slsa.mm.parametertuning.Variable" uuid="5c67baf9-9bcc-4470-830f-8c2f759efd10"/>
+    </workspaces>
+  </slsa.mm.parametertuning.VariableRegistry>
+</MF0>
