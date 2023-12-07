@@ -14,7 +14,7 @@ coeftorque = 0.4008 / (max_prop^2);
 total_mass = 2.1309;
 g = 9.8067;
 % g = 0;
-startplatform = 0.1;
+startplatform = -0.02;
 startaxis = 0;
 I = [0.0283    0.0003    0.0072
     0.0003    0.5210   -0.0001
