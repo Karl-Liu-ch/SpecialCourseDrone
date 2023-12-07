@@ -34,4 +34,5 @@ controlmatrix = [Lx*coefthrust, Lx*coefthrust, -Lx*coefthrust, -Lx*coefthrust, -
     coeftorque, -coeftorque, -coeftorque, coeftorque, coeftorque, -coeftorque, -coeftorque, coeftorque;
     1,1,1,1,1,1,1,1];
 controlmatrix = pinv(controlmatrix);
+Lz = 0.0221;
 save('parameters.mat');
