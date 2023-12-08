@@ -2,7 +2,7 @@ clear;
 clc;
 x_0 = 0;
 y_0 = 0;
-z_0 = 0.3;
+z_0 = 0.13;
 timestep = 0.01;
 dynamicaxisangle = 162.61734029515165 * pi / 180;
 neutraldynamicaxis = dynamicaxisangle - pi;
