@@ -5,8 +5,6 @@ import numpy as np
 import math
 from simulink_gym import logger
 
-
-
 # Define example environment:
 class Dronesimscape(SimulinkEnv):
     """Classic Cart Pole Control Environment implemented in Matlab/Simulink/Simscape.
@@ -41,7 +39,8 @@ class Dronesimscape(SimulinkEnv):
         timestep = 0.001,
         x_0 = 0,
         y_0 = 0,
-        z_0 = 0.13,
+        z_0 = 1,
+        # z_0 = 0.13,
         max_prop = 1000,
         coaxialeff = 450000/(1000**2),
         drag_coefficient = 0.47,
@@ -70,8 +69,9 @@ class Dronesimscape(SimulinkEnv):
         )
 
         # Define action space:
-        self.action_space = Box(low=np.array([-100, -100, -100, -100, -100, -100, -100, -100, -100, -100]),
-                               high=np.array([100, 100, 100, 100, 100, 100, 100, 100, 100, 100]),
+        self.maxprop = max_prop
+        self.action_space = Box(low=np.array([-0.03, -math.pi/2, 0, 0, 0, 0, 0, 0, 0, 0],dtype=np.float32),
+                               high=np.array([0.4, math.pi/2, max_prop, max_prop, max_prop, max_prop, max_prop, max_prop, max_prop, max_prop],dtype=np.float32),
                                dtype=np.float32)
 
         # Define state and observations:
@@ -100,7 +100,9 @@ class Dronesimscape(SimulinkEnv):
         )
 
         # Get initial state from defined observations:
-        self.state = self.observations.initial_state
+        # self.desired_pose = np.random.uniform(low=0.5, high=2, size=(3,))
+        self.desired_pose = np.array([0, 0, 2], dtype=np.float32)
+        self.state = np.concatenate((self.observations.initial_state, self.desired_pose))
 
         # Set simulation parameters:
         self.set_model_parameter("StopTime", stop_time)
@@ -120,34 +122,57 @@ class Dronesimscape(SimulinkEnv):
 
     def reset(self):
         # Resample initial state:
+        # pose = np.random.uniform(low=-1, high=1, size=(3,))
+        # self.set_workspace_variable("x_0", pose[0])
+        # self.set_workspace_variable("y_0", pose[1])
+        # self.set_workspace_variable("z_0", pose[2]+1)
         self.observations.initial_state = np.random.uniform(
             low=-0.05, high=0.05, size=(16,)
         )
-        # np.zeros(shape=16)
 
         # Call common reset:
         super()._reset()
+        # self.desired_pose = np.random.uniform(low=0.5, high=2, size=(3,))
+        self.desired_pose = np.array([0, 0, 2], dtype=np.float32)
+        self.state = np.concatenate((self.observations.initial_state, self.desired_pose))
 
         # Return reshaped state. Needed for use as tf.model input:
         return self.state
 
+    def output2action(self, action):
+        # action = output + np.array([(0.4+0.03)/2,0,1,1,1,1,1,1,1,1], dtype=np.float32)
+        action = action * (np.array([0.43, math.pi, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop], dtype=np.float32))
+        action = np.clip(action, a_min=np.array([-0.03, -math.pi/2, 0, 0, 0, 0, 0, 0, 0, 0],dtype=np.float32),
+                               a_max=np.array([0.4, math.pi/2, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop],dtype=np.float32))
+        return action
+
     def step(self, action):
         """Method for stepping the simulation."""
-
-        # action = int(action)
+        action = self.output2action(action)
 
         state, simulation_time, terminated, truncated = self.sim_step(action)
+        state = np.concatenate((state, self.desired_pose))
+        axispose = state[0]
+        axisvel = state[1]
+        platformpose = state[2]
+        pose = np.array([state[3], state[5], state[7]])
+        vel = np.array([state[4], state[6], state[8]])
+        omega = np.array([state[9], state[10], state[11]])
+        angular = np.array([state[12], state[13], state[14]])
+        yawrate = state[15]
         current_z = state[7]
 
         # Check all termination conditions:
         done = bool(
             terminated
             or truncated
-            or current_z < -5
+            or current_z < 0.5
+            or np.linalg.norm(angular) > math.pi
         )
 
         # Receive reward for every step inside state and time limits:
-        reward = 1
+        # reward = - (np.linalg.norm(self.desired_pose - pose) + np.linalg.norm(vel) + np.linalg.norm(omega) + np.linalg.norm(angular))
+        reward = - (np.linalg.norm(self.desired_pose - pose) + np.linalg.norm(angular))
 
         info = {"simulation time [s]": simulation_time}
 
