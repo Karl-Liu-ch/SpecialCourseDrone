@@ -36,7 +36,7 @@ class Dronesimscape(SimulinkEnv):
         self,
         stop_time: float = 10.0,
         step_size: float = 0.01,
-        timestep = 0.001,
+        timestep = 0.01,
         x_0 = 0,
         y_0 = 0,
         z_0 = 1,
@@ -73,7 +73,7 @@ class Dronesimscape(SimulinkEnv):
         self.action_space = Box(low=np.array([-0.03, -math.pi/2, 0, 0, 0, 0, 0, 0, 0, 0],dtype=np.float32),
                                high=np.array([0.4, math.pi/2, max_prop, max_prop, max_prop, max_prop, max_prop, max_prop, max_prop, max_prop],dtype=np.float32),
                                dtype=np.float32)
-
+        
         # Define state and observations:
         self.max_cart_position = 2.4
         max_pole_angle_deg = 12
@@ -107,7 +107,7 @@ class Dronesimscape(SimulinkEnv):
         # Set simulation parameters:
         self.set_model_parameter("StopTime", stop_time)
         self.set_workspace_variable("step_size", step_size)
-        self.set_workspace_variable("timestep", timestep)
+        # self.set_workspace_variable("timestep", timestep)
         self.set_workspace_variable("x_0", x_0)
         self.set_workspace_variable("y_0", y_0)
         self.set_workspace_variable("z_0", z_0)
@@ -140,15 +140,15 @@ class Dronesimscape(SimulinkEnv):
         return self.state
 
     def output2action(self, action):
-        # action = output + np.array([(0.4+0.03)/2,0,1,1,1,1,1,1,1,1], dtype=np.float32)
-        # action = action * (np.array([0.43, math.pi, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop], dtype=np.float32))
+        action = action + np.array([(0.4+0.03)/2,0,1,1,1,1,1,1,1,1], dtype=np.float32)
+        action = action * (np.array([0.43, math.pi, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop], dtype=np.float32))
         action = np.clip(action, a_min=np.array([-0.03, -math.pi/2, 0, 0, 0, 0, 0, 0, 0, 0],dtype=np.float32),
                                a_max=np.array([0.4, math.pi/2, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop],dtype=np.float32))
         return action
 
     def step(self, action):
         """Method for stepping the simulation."""
-        # action = self.output2action(action)
+        action = self.output2action(action)
 
         state, simulation_time, terminated, truncated = self.sim_step(action)
         state = np.concatenate((state, self.desired_pose))
@@ -166,13 +166,16 @@ class Dronesimscape(SimulinkEnv):
         done = bool(
             terminated
             or truncated
-            or current_z < 0.1
-            or np.linalg.norm(angular) > math.pi
+            or current_z < -10
+            or np.linalg.norm(self.desired_pose - pose) < 0.01
         )
 
         # Receive reward for every step inside state and time limits:
         # reward = - (np.linalg.norm(self.desired_pose - pose) + np.linalg.norm(vel) + np.linalg.norm(omega) + np.linalg.norm(angular))
-        reward = - (np.linalg.norm(self.desired_pose - pose) + np.linalg.norm(angular))
+        # reward = - (np.linalg.norm(self.desired_pose - pose) + np.linalg.norm(angular))
+        reward = -np.linalg.norm(omega)
+        if np.linalg.norm(self.desired_pose - pose) < 0.01:
+            reward += 1000
 
         info = {"simulation time [s]": simulation_time}
 
