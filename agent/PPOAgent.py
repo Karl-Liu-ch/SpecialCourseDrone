@@ -116,8 +116,6 @@ class ActorCritic(nn.Module):
 
         if self.has_continuous_action_space:
             action_mean = self.actor(state)
-            # action_mean = action_mean + torch.tensor(np.array([(0.4+0.03)/2,0,1,1,1,1,1,1,1,1], dtype=np.float32)).to(device)
-            # action_mean = action_mean * torch.tensor(np.array([0.4+0.03, math.pi, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000], dtype=np.float32) / 2.0).to(device)
             cov_mat = torch.diag(self.action_var).unsqueeze(dim=0)
             dist = MultivariateNormal(action_mean, cov_mat)
         else:
