@@ -1,16 +1,22 @@
-# %%
-from Dronesimscape import Dronesimscape
-from simulink_gym import logger
-
-logger.setLevel(10)
-# Create training environment:
-env = Dronesimscape(stop_time=30, model_debug=False)
-# Reset environment:
-state = env.reset()
-
-# %%
+import torch
 from agent.TD3 import *
 import math
+from Dronesimscape import Dronesimscape
+from simulink_gym import logger
+logger.setLevel(10)
+import argparse
+parser = argparse.ArgumentParser(description="Matlab Simscape")
+parser.add_argument('--version', type=str, default='Dronesimscape.slx')
+opt = parser.parse_args()
+model_path=opt.version
+from pathlib import Path
+# Create training environment:
+env = Dronesimscape(stop_time=10, step_size=0.001, timestep=0.001, 
+                    model_path = Path(__file__).parent.absolute().joinpath(model_path),
+                    model_debug=False)
+# Reset environment:
+# state = env.reset()
+
 K_epochs = 80               # update policy for K epochs
 eps_clip = 0.2              # clip parameter for PPO
 gamma = 0.99                # discount factor
@@ -27,34 +33,25 @@ td3_agent = TD3(state_dim=19, action_dim=10, max_action = max_action, policy_fre
 env_name = 'Dronesimscape'
 directory = "agent/TD3_preTrained/" + env_name + '/'
 checkpoint_path = directory + "TD3_{}.pth".format(env_name)
-td3_agent.load(checkpoint_path)
+try:
+    td3_agent.load(checkpoint_path)
+except:
+    pass
 
-# %%
 env_name = "Dronesimscape"
 has_continuous_action_space = True
 
-max_ep_len = 1000              # max timesteps in one episode
-max_training_timesteps = int(1e5)   # break training loop if timeteps > max_training_timesteps
+max_ep_len = 5000              # max timesteps in one episode
+max_training_timesteps = int(1e8)   # break training loop if timeteps > max_training_timesteps
 
 print_freq = max_ep_len * 4     # print avg reward in the interval (in num timesteps)
-log_freq = max_ep_len * 2       # log avg reward in the interval (in num timesteps)
+# log_freq = max_ep_len * 2       # log avg reward in the interval (in num timesteps)
 save_model_freq = int(2e4)      # save model frequency (in num timesteps)
 
-action_std = None
+# action_std = None
 
 update_timestep = max_ep_len * 4      # update policy every n timesteps
-K_epochs = 40               # update policy for K epochs
-eps_clip = 0.2              # clip parameter for PPO
-gamma = 0.99                # discount factor
-
-lr_actor = 0.0003       # learning rate for actor network
-lr_critic = 0.001       # learning rate for critic network
-
-random_seed = 0         # set random seed if required (0 = no random seed)
-
-
-print_running_reward = 0
-print_running_episodes = 0
+K_epochs = 40
 
 log_running_reward = 0
 log_running_episodes = 0

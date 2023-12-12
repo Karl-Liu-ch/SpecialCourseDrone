@@ -1,34 +1,18 @@
-# %%
-from Dronesimscape import Dronesimscape
-from simulink_gym import logger
-
-logger.setLevel(10)
-
-
-# %%
-# Create training environment:
-env = Dronesimscape(stop_time=10, step_size=0.001, timestep=0.001, model_debug=False)
-
-
-# %%
-# Reset environment:
-state = env.reset()
-
-
-# %%
-# Execute single step in the environment:
-# action = env.action_space.sample()
-# state, reward, done, info = env.step(action)
-
-
-# %%
-# action = env.action_space.sample()
-# state
-
-# %%
+import torch
 from agent.PPOAgent import *
 total_test_episodes = 10    # total num of testing episodes
+from Dronesimscape import Dronesimscape
+from simulink_gym import logger
+logger.setLevel(10)
+from pathlib import Path
+import sys
+sys.path.append('./')
+import argparse
+parser = argparse.ArgumentParser(description="Matlab Simscape")
+parser.add_argument('--version', type=str, default='Dronesimscape.slx')
+opt = parser.parse_args()
 
+model_path=opt.version
 K_epochs = 80               # update policy for K epochs
 eps_clip = 0.2              # clip parameter for PPO
 gamma = 0.99                # discount factor
@@ -39,20 +23,13 @@ env_name = 'Dronesimscape'
 directory = "agent/PPO_preTrained/" + env_name + '/'
 checkpoint_path = directory + "PPO_{}.pth".format(env_name)
 
-# %%
 
 print("============================================================================================")
-
-
-################################### Training ###################################
-
-
-####### initialize environment hyperparameters ######
 
 env_name = "Dronesimscape"
 has_continuous_action_space = True
 
-max_ep_len = 1000              # max timesteps in one episode
+max_ep_len = 5000              # max timesteps in one episode
 max_training_timesteps = int(1e8)   # break training loop if timeteps > max_training_timesteps
 
 print_freq = max_ep_len * 4     # print avg reward in the interval (in num timesteps)
@@ -60,16 +37,6 @@ log_freq = max_ep_len * 2       # log avg reward in the interval (in num timeste
 save_model_freq = int(2e4)      # save model frequency (in num timesteps)
 
 action_std = None
-
-
-#####################################################
-
-
-## Note : print/log frequencies should be > than max_ep_len
-
-
-################ PPO hyperparameters ################
-
 
 update_timestep = max_ep_len * 4      # update policy every n timesteps
 K_epochs = 40               # update policy for K epochs
@@ -152,14 +119,6 @@ print("-------------------------------------------------------------------------
 
 print("optimizer learning rate actor : ", lr_actor)
 print("optimizer learning rate critic : ", lr_critic)
-
-if random_seed:
-    print("--------------------------------------------------------------------------------------------")
-    print("setting random seed to ", random_seed)
-    torch.manual_seed(random_seed)
-    env.seed(random_seed)
-    np.random.seed(random_seed)
-
 #####################################################
 
 print("============================================================================================")
@@ -168,7 +127,9 @@ print("=========================================================================
 
 # initialize a PPO agent
 ppo_agent = PPO(state_dim=19, action_dim=10, lr_actor = lr_actor, lr_critic = lr_critic, gamma = gamma, K_epochs = K_epochs, eps_clip = eps_clip, has_continuous_action_space = True, action_std_init=0.1)
-ppo_agent.load(checkpoint_path)
+torch.load('agent/PPO_preTrained/Dronesimscape/PPO_Dronesimscape_0_0.pth')
+ppo_agent.load('agent/PPO_preTrained/Dronesimscape/PPO_Dronesimscape_0_0.pth')
+print("pretrained model loaded")
 
 # track total training time
 start_time = datetime.now().replace(microsecond=0)
@@ -188,6 +149,19 @@ i_episode = 0
 action_std_decay_freq = int(1e5)
 action_std_decay_rate = 1e-3
 min_action_std = 1e-3
+
+env = Dronesimscape(stop_time=10, step_size=0.001, timestep=0.001, 
+                    model_path = Path(__file__).parent.absolute().joinpath(model_path),
+                    model_debug=False)
+
+state = env.reset()
+
+if random_seed:
+    print("--------------------------------------------------------------------------------------------")
+    print("setting random seed to ", random_seed)
+    torch.manual_seed(random_seed)
+    env.seed(random_seed)
+    np.random.seed(random_seed)
 
 # training loop
 while time_step <= max_training_timesteps:
@@ -275,8 +249,6 @@ print("Finished training at (GMT) : ", end_time)
 print("Total training time  : ", end_time - start_time)
 print("============================================================================================")
 
-# %%
-# Test agent:
 trajectory = []
 sim_time = []
 actions = []
@@ -289,16 +261,10 @@ while not done:
     actions.append(action)
 
 
-# %%
 len(actions)
-
-# %%
 # Stop the current episode:
 env.stop_simulation()
 
-
-# %%
-# Close environment:
 env.close()
 
 
