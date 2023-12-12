@@ -141,7 +141,7 @@ class Dronesimscape(SimulinkEnv):
 
     def output2action(self, action):
         action = action + np.array([(0.4+0.03)/2,0,1,1,1,1,1,1,1,1], dtype=np.float32)
-        action = action * (np.array([0.43, math.pi, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop], dtype=np.float32))
+        action = action * (np.array([0.43/2, math.pi/2, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop], dtype=np.float32))
         action = np.clip(action, a_min=np.array([-0.03, -math.pi/2, 0, 0, 0, 0, 0, 0, 0, 0],dtype=np.float32),
                                a_max=np.array([0.4, math.pi/2, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop],dtype=np.float32))
         return action
@@ -176,7 +176,12 @@ class Dronesimscape(SimulinkEnv):
         # reward = - (np.linalg.norm(self.desired_pose - pose) + np.linalg.norm(vel) + np.linalg.norm(omega) + np.linalg.norm(angular))
         # reward = - (np.linalg.norm(self.desired_pose - pose) + np.linalg.norm(angular))
         # hold position reward:
-        reward += - (np.linalg.norm(self.desired_pose - pose) + np.linalg.norm(angular))
+        posereward = 0
+        posereward += - np.linalg.norm(self.desired_pose - pose) * 0.01
+        posereward += - np.linalg.norm(angular)
+        posereward += - np.linalg.norm(action[2:]) * 0.00001
+        reward += posereward * 0.001
+        
         if np.linalg.norm(self.desired_pose - pose) < 0.01:
             reward += 10
 
