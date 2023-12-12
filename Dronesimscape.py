@@ -34,6 +34,9 @@ class Dronesimscape(SimulinkEnv):
 
     def __init__(
         self,
+        model_path = Path(__file__)
+            .parent.absolute()
+            .joinpath("Copy_of_Dronesimscape.slx"), 
         stop_time: float = 10.0,
         step_size: float = 0.01,
         timestep = 0.01,
@@ -62,9 +65,7 @@ class Dronesimscape(SimulinkEnv):
                 Flag for setting up the model debug mode (see Readme.md for details)
         """
         super().__init__(
-            model_path=Path(__file__)
-            .parent.absolute()
-            .joinpath("Dronesimscape.slx"),
+            model_path=model_path,
             model_debug=model_debug,
         )
 
