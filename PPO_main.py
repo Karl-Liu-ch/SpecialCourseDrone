@@ -29,7 +29,7 @@ print("=========================================================================
 env_name = "Dronesimscape"
 has_continuous_action_space = True
 
-max_ep_len = 5000              # max timesteps in one episode
+max_ep_len = 10000              # max timesteps in one episode
 max_training_timesteps = int(1e8)   # break training loop if timeteps > max_training_timesteps
 
 print_freq = max_ep_len * 4     # print avg reward in the interval (in num timesteps)

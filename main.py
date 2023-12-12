@@ -60,6 +60,7 @@ elif opt.agent == 'ODDPG':
 
 try:
     agent.load(checkpoint_path)
+    print("pretrained model loaded")
 except:
     pass
 
