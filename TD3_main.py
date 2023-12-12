@@ -12,7 +12,17 @@ opt = parser.parse_args()
 model_path=opt.version
 from pathlib import Path
 import warnings
+import numpy as np
 warnings.filterwarnings("ignore")
+
+
+def output2action(action):
+    action = action + np.array([(0.4+0.03)/2,0,1,1,1,1,1,1,1,1], dtype=np.float32)
+    action = action * (np.array([0.43/2, math.pi/2, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000], dtype=np.float32))
+    action = np.clip(action, a_min=np.array([-0.03, -math.pi/2, 0, 0, 0, 0, 0, 0, 0, 0],dtype=np.float32),
+                            a_max=np.array([0.4, math.pi/2, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000],dtype=np.float32))
+    return action
+
 # Create training environment:
 env = Dronesimscape(stop_time=10, step_size=0.001, timestep=0.001, 
                     model_path = Path(__file__).parent.absolute().joinpath(model_path),
@@ -29,9 +39,9 @@ lr_critic = 0.001           # learning rate for critic
 # bias = np.array([(0.4+0.03)/2,0,1,1,1,1,1,1,1,1], dtype=np.float32)
 bias = np.array([0,0,0,0,0,0,0,0,0,0], dtype=np.float32)
 # max_action = np.array([0.43, math.pi, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000], dtype=np.float32)
-max_action = np.array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1], dtype=np.float32)
+max_action_np = np.array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1], dtype=np.float32)
 bias = torch.Tensor(bias).cuda()
-max_action = torch.tensor(max_action).cuda()
+max_action = torch.tensor(max_action_np).cuda()
 td3_agent = TD3(state_dim=19, action_dim=10, max_action = max_action, policy_freq=2)
 env_name = 'Dronesimscape'
 directory = "agent/TD3_preTrained/" + env_name + '/'
@@ -70,19 +80,20 @@ replay_buffer = ReplayBuffer(state_dim=19, action_dim=action_dim)
 episode_timesteps  = 0
 episode_num = 0
 # training loop
-while time_step <= max_training_timesteps:
+state = env.reset()
+for time_step in range(int(max_training_timesteps)):
     episode_timesteps += 1
-    state = env.reset()
     current_ep_reward = 0
-
+    
     if time_step < 2e3:
         action = env.action_space.sample()
     else:
-        action = (
-                td3_agent.select_action(state)
-                + np.random.normal(0, max_action * opt.expl_noise, size=action_dim)
-            ).clip(-max_action, max_action)
-        
+        action = (td3_agent.select_action(state)
+                + np.random.normal(0, max_action_np * opt.expl_noise, size=action_dim)
+            )
+        action = np.clip(action, a_min=-max_action_np, a_max=max_action_np, dtype = np.float32)
+    
+    action = output2action(action)
     new_state, reward, done, _ = env.step(action)
     pose = np.array([new_state[3], new_state[5], new_state[7]])
     pose = np.array([state[3], state[5], state[7]])
@@ -95,27 +106,15 @@ while time_step <= max_training_timesteps:
     
     # saving reward and is_terminals
     
-    time_step +=1
     current_ep_reward += reward
 
     # update PPO agent
     if time_step > 2e3:
+        # print('training')
         td3_agent.train(replay_buffer)
-
-    # printing average reward
-    if time_step % print_freq == 0:
-
-        # print average reward till last episode
-        print_avg_reward = print_running_reward / print_running_episodes
-        print_avg_reward = round(print_avg_reward, 2)
-
-        print("Episode : {} \t\t Timestep : {} \t\t Average Reward : {}".format(i_episode, time_step, print_avg_reward))
-
-        print_running_reward = 0
-        print_running_episodes = 0
         
     # save model weights
-    if time_step % save_model_freq == 0:
+    if (time_step + 1) % save_model_freq == 0:
         print("--------------------------------------------------------------------------------------------")
         print("saving model at : " + checkpoint_path)
         td3_agent.save(checkpoint_path)
@@ -124,10 +123,10 @@ while time_step <= max_training_timesteps:
     # break; if the episode is over
     if done: 
         # +1 to account for 0 indexing. +0 on ep_timesteps since it will increment +1 even if done=True
-        print(f"Total T: {time_step+1} Episode Num: {episode_num+1} Episode T: {episode_timesteps} Reward: {episode_reward:.3f}")
+        print(f"Total T: {time_step+1} Episode Num: {episode_num+1} Episode T: {episode_timesteps} Reward: {current_ep_reward:.3f}")
         # Reset environment
         state, done = env.reset(), False
-        episode_reward = 0
+        current_ep_reward = 0
         episode_timesteps = 0
         episode_num += 1 
 

@@ -140,16 +140,9 @@ class Dronesimscape(SimulinkEnv):
         # Return reshaped state. Needed for use as tf.model input:
         return self.state
 
-    def output2action(self, action):
-        action = action + np.array([(0.4+0.03)/2,0,1,1,1,1,1,1,1,1], dtype=np.float32)
-        action = action * (np.array([0.43/2, math.pi/2, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop], dtype=np.float32))
-        action = np.clip(action, a_min=np.array([-0.03, -math.pi/2, 0, 0, 0, 0, 0, 0, 0, 0],dtype=np.float32),
-                               a_max=np.array([0.4, math.pi/2, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop, self.maxprop],dtype=np.float32))
-        return action
-
     def step(self, action):
         """Method for stepping the simulation."""
-        action = self.output2action(action)
+        # action = self.output2action(action)
 
         state, simulation_time, terminated, truncated = self.sim_step(action)
         state = np.concatenate((state, self.desired_pose))
