@@ -92,8 +92,7 @@ while time_step <= max_training_timesteps:
 
         # update PPO agent
         if time_step % update_timestep == 0:
-            for i in range(K_epochs):
-                td3_agent.train(replay_buffer)
+            td3_agent.train(replay_buffer)
 
         # printing average reward
         if time_step % print_freq == 0:
