@@ -36,7 +36,7 @@ class Dronesimscape(SimulinkEnv):
         self,
         model_path = Path(__file__)
             .parent.absolute()
-            .joinpath("Copy_of_Dronesimscape.slx"), 
+            .joinpath("Dronesimscape.slx"), 
         stop_time: float = 10.0,
         step_size: float = 0.01,
         timestep = 0.01,
