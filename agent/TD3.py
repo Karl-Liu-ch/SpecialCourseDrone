@@ -49,17 +49,20 @@ class ReplayBuffer(object):
 		)
 
 class Actor(nn.Module):
-	def __init__(self, state_dim, action_dim):
+	def __init__(self, state_dim, action_dim, max_action):
 		super(Actor, self).__init__()
 
-		self.l1 = nn.Linear(state_dim, NODES)
-		self.l2 = nn.Linear(NODES, NODES)
-		self.l3 = nn.Linear(NODES, action_dim)
-		  
+		self.l1 = nn.Linear(state_dim, 256)
+		self.l2 = nn.Linear(256, 256)
+		self.l3 = nn.Linear(256, action_dim)
+		
+		self.max_action = max_action
+		
+
 	def forward(self, state):
-		a = F.tanh(self.l1(state))
-		a = F.tanh(self.l2(a))
-		return torch.tanh(self.l3(a))
+		a = F.relu(self.l1(state))
+		a = F.relu(self.l2(a))
+		return self.max_action * torch.tanh(self.l3(a))
 
 
 class Critic(nn.Module):
@@ -104,6 +107,7 @@ class TD3(object):
 		self,
 		state_dim,
 		action_dim,
+  		max_action, 
 		discount=0.99,
 		tau=0.005,
 		policy_noise=0.1,
@@ -111,7 +115,7 @@ class TD3(object):
 		policy_freq=2
 	):
 
-		self.actor = Actor(state_dim, action_dim).to(device)
+		self.actor = Actor(state_dim, action_dim, max_action).to(device)
 		self.actor_target = copy.deepcopy(self.actor)
 		self.actor_optimizer = torch.optim.Adam(self.actor.parameters(), lr=3e-4)
 
