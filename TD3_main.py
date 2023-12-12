@@ -7,9 +7,12 @@ logger.setLevel(10)
 import argparse
 parser = argparse.ArgumentParser(description="Matlab Simscape")
 parser.add_argument('--version', type=str, default='Dronesimscape.slx')
+parser.add_argument("--expl_noise", default=0.1, type=float)
 opt = parser.parse_args()
 model_path=opt.version
 from pathlib import Path
+import warnings
+warnings.filterwarnings("ignore")
 # Create training environment:
 env = Dronesimscape(stop_time=10, step_size=0.001, timestep=0.001, 
                     model_path = Path(__file__).parent.absolute().joinpath(model_path),
@@ -62,60 +65,71 @@ log_running_episodes = 0
 
 time_step = 0
 i_episode = 0
-
-replay_buffer = ReplayBuffer(state_dim=19, action_dim=10)
-
+action_dim = 10
+replay_buffer = ReplayBuffer(state_dim=19, action_dim=action_dim)
+episode_timesteps  = 0
+episode_num = 0
 # training loop
 while time_step <= max_training_timesteps:
-    
+    episode_timesteps += 1
     state = env.reset()
     current_ep_reward = 0
 
-    for t in range(1, max_ep_len+1):
+    if time_step < 2e3:
+        action = env.action_space.sample()
+    else:
+        action = (
+                td3_agent.select_action(state)
+                + np.random.normal(0, max_action * opt.expl_noise, size=action_dim)
+            ).clip(-max_action, max_action)
         
-        # select action with policy
-        action = td3_agent.select_action(state)
-        new_state, reward, done, _ = env.step(action)
-        pose = np.array([new_state[3], new_state[5], new_state[7]])
-        pose = np.array([state[3], state[5], state[7]])
-        if np.linalg.norm(env.desired_pose - pose) < 0.01:
-            done = 1
-        else:
-            done = 0
-        replay_buffer.add(state, action, new_state, reward, done)
-        state = new_state
+    new_state, reward, done, _ = env.step(action)
+    pose = np.array([new_state[3], new_state[5], new_state[7]])
+    pose = np.array([state[3], state[5], state[7]])
+    if np.linalg.norm(env.desired_pose - pose) < 0.01:
+        done_bool = 1
+    else:
+        done_bool = 0
+    replay_buffer.add(state, action, new_state, reward, done_bool)
+    state = new_state
+    
+    # saving reward and is_terminals
+    
+    time_step +=1
+    current_ep_reward += reward
+
+    # update PPO agent
+    if time_step > 2e3:
+        td3_agent.train(replay_buffer)
+
+    # printing average reward
+    if time_step % print_freq == 0:
+
+        # print average reward till last episode
+        print_avg_reward = print_running_reward / print_running_episodes
+        print_avg_reward = round(print_avg_reward, 2)
+
+        print("Episode : {} \t\t Timestep : {} \t\t Average Reward : {}".format(i_episode, time_step, print_avg_reward))
+
+        print_running_reward = 0
+        print_running_episodes = 0
         
-        # saving reward and is_terminals
+    # save model weights
+    if time_step % save_model_freq == 0:
+        print("--------------------------------------------------------------------------------------------")
+        print("saving model at : " + checkpoint_path)
+        td3_agent.save(checkpoint_path)
+        print("model saved")
         
-        time_step +=1
-        current_ep_reward += reward
-
-        # update PPO agent
-        if time_step % update_timestep == 0:
-            td3_agent.train(replay_buffer)
-
-        # printing average reward
-        if time_step % print_freq == 0:
-
-            # print average reward till last episode
-            print_avg_reward = print_running_reward / print_running_episodes
-            print_avg_reward = round(print_avg_reward, 2)
-
-            print("Episode : {} \t\t Timestep : {} \t\t Average Reward : {}".format(i_episode, time_step, print_avg_reward))
-
-            print_running_reward = 0
-            print_running_episodes = 0
-            
-        # save model weights
-        if time_step % save_model_freq == 0:
-            print("--------------------------------------------------------------------------------------------")
-            print("saving model at : " + checkpoint_path)
-            td3_agent.save(checkpoint_path)
-            print("model saved")
-            
-        # break; if the episode is over
-        if done:
-            break
+    # break; if the episode is over
+    if done: 
+        # +1 to account for 0 indexing. +0 on ep_timesteps since it will increment +1 even if done=True
+        print(f"Total T: {time_step+1} Episode Num: {episode_num+1} Episode T: {episode_timesteps} Reward: {episode_reward:.3f}")
+        # Reset environment
+        state, done = env.reset(), False
+        episode_reward = 0
+        episode_timesteps = 0
+        episode_num += 1 
 
     print_running_reward += current_ep_reward
     print_running_episodes += 1
