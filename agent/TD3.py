@@ -114,7 +114,7 @@ class TD3(object):
 		noise_clip=0.2,
 		policy_freq=2
 	):
-
+		self.max_action = max_action
 		self.actor = Actor(state_dim, action_dim, max_action).to(device)
 		self.actor_target = copy.deepcopy(self.actor)
 		self.actor_optimizer = torch.optim.Adam(self.actor.parameters(), lr=3e-4)

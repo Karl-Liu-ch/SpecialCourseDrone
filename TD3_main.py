@@ -47,7 +47,11 @@ max_training_timesteps = int(1e8)   # break training loop if timeteps > max_trai
 print_freq = max_ep_len * 4     # print avg reward in the interval (in num timesteps)
 # log_freq = max_ep_len * 2       # log avg reward in the interval (in num timesteps)
 save_model_freq = int(2e4)      # save model frequency (in num timesteps)
+print_running_reward = 0
+print_running_episodes = 0
 
+log_running_reward = 0
+log_running_episodes = 0
 # action_std = None
 
 update_timestep = max_ep_len * 4      # update policy every n timesteps
