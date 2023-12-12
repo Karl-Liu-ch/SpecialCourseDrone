@@ -108,7 +108,7 @@ class Dronesimscape(SimulinkEnv):
         # Set simulation parameters:
         self.set_model_parameter("StopTime", stop_time)
         self.set_workspace_variable("step_size", step_size)
-        # self.set_workspace_variable("timestep", timestep)
+        self.set_workspace_variable("timestep", step_size)
         self.set_workspace_variable("x_0", x_0)
         self.set_workspace_variable("y_0", y_0)
         self.set_workspace_variable("z_0", z_0)
