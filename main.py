@@ -98,7 +98,7 @@ episode_num = 0
 state = env.reset()
 current_ep_reward = 0
 basic_batch_size = 2048
-basic_update_times = 40
+basic_update_times = 1
 for time_step in range(int(max_training_timesteps)):
     episode_timesteps += 1
     
