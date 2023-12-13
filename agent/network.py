@@ -75,7 +75,7 @@ class ResBlock(nn.Module):
         return self.act(self.net(x) + x)
 
 class ResNet(nn.Module):
-    def __init__(self, in_channels, outchannels, n_blocks = 6) -> None:
+    def __init__(self, in_channels, outchannels, n_blocks = 2) -> None:
         super().__init__()
         hiddensize = 256
         blocks = []

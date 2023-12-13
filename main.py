@@ -89,7 +89,7 @@ log_running_episodes = 0
 time_step = 0
 i_episode = 0
 action_dim = 10
-replay_buffer_max = int(1e7)
+replay_buffer_max = int(1e6)
 replay_buffer = ReplayBuffer(state_dim=19, action_dim=action_dim, max_size=replay_buffer_max)
 replay_max = replay_buffer_max
 episode_timesteps  = 0
