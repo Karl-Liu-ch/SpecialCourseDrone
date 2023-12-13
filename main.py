@@ -98,15 +98,14 @@ current_ep_reward = 0
 for time_step in range(int(max_training_timesteps)):
     episode_timesteps += 1
     
-    if time_step < 2e3:
+    if time_step < 2.5e3:
         action = env.action_space.sample()
     else:
         action = (agent.select_action(state)
                 + np.random.normal(0, max_action_np * opt.expl_noise, size=action_dim)
             )
         action = np.clip(action, a_min=-max_action_np, a_max=max_action_np, dtype = np.float32)
-    
-    action = output2action(action)
+        action = output2action(action)
     new_state, reward, done, _ = env.step(action)
     pose = np.array([new_state[3], new_state[5], new_state[7]])
     pose = np.array([state[3], state[5], state[7]])
@@ -122,9 +121,9 @@ for time_step in range(int(max_training_timesteps)):
     current_ep_reward += reward
 
     # update PPO agent
-    if time_step > 2e3:
+    if time_step > 2.5e3:
         # print('training')
-        agent.train(replay_buffer)
+        agent.train(replay_buffer, batch_size=2048)
         
     # save model weights
     if (time_step + 1) % save_model_freq == 0:
