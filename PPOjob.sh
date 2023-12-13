@@ -37,4 +37,4 @@ source ./miniconda3/bin/activate
 conda activate pytorch113
 cd /zhome/02/b/164706/Master_Courses/2023_Fall/SpecialCourseDrone/
 export PYTHONUNBUFFERED=1
-python -u PPO_main.py --version Dronesimscape_2022b.slx
+python -u PPO_main.py --version DronesimscapeHPC2022.slx

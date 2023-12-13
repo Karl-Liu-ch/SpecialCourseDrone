@@ -74,7 +74,7 @@ print_freq = max_ep_len * 4     # print avg reward in the interval (in num times
 # log_freq = max_ep_len * 2       # log avg reward in the interval (in num timesteps)
 save_model_freq = int(2e4)      # save model frequency (in num timesteps)
 print_running_reward = 0
-print_running_episodes = 0
+print_running_episodes = 1
 
 log_running_reward = 0
 log_running_episodes = 0
@@ -135,20 +135,17 @@ for time_step in range(int(max_training_timesteps)):
         
     # break; if the episode is over
     if done: 
-        # +1 to account for 0 indexing. +0 on ep_timesteps since it will increment +1 even if done=True
-        print(f"Total T: {time_step+1} Episode Num: {episode_num+1} Episode T: {episode_timesteps} Reward: {current_ep_reward:.3f}")
-        # Reset environment
         state, done = env.reset(), False
+        episode_num += 1 
+        print_running_reward += current_ep_reward
+        print_avg_reward = print_running_reward / episode_num
+        print_avg_reward = round(print_avg_reward, 2)
+        # +1 to account for 0 indexing. +0 on ep_timesteps since it will increment +1 even if done=True
+        print(f"Total T: {time_step} Episode Num: {episode_num} Episode T: {episode_timesteps} Reward: {print_avg_reward:.3f}")
+        # Reset environment
         current_ep_reward = 0
         episode_timesteps = 0
-        episode_num += 1 
 
-    print_running_reward += current_ep_reward
-    print_running_episodes += 1
-
-    log_running_reward += current_ep_reward
-    log_running_episodes += 1
-
-    i_episode += 1
+        i_episode += 1
 
 env.close()
