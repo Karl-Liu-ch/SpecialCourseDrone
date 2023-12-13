@@ -172,8 +172,8 @@ class Dronesimscape(SimulinkEnv):
         # hold position reward:
         posereward = 0
         posereward += - np.linalg.norm(self.desired_pose - pose) * 0.01
-        posereward += - np.linalg.norm(angular)
-        posereward += - np.linalg.norm(action[2:]) * 0.00001
+        # posereward += - np.linalg.norm(angular)
+        # posereward += - np.linalg.norm(action[2:]) * 0.00001
         reward += posereward * 0.001
         
         if np.linalg.norm(self.desired_pose - pose) < 0.01:
