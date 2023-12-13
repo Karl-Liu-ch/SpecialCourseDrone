@@ -1,0 +1,8 @@
+Loaded module: cuda/11.8
+Loaded module: cudnn/v8.9.1.23-prod-cuda-11.X
+Loaded module: matlab/R2022b
+INFO: Starting Matlab engine
+INFO: Adding components to Matlab path
+INFO: Creating simulation input object for model DronesimscapeHPC2022.slx
+INFO: recv_socket: Socket not connected, nothing to close
+INFO: send_socket: Socket not connected, nothing to close
