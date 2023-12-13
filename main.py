@@ -94,9 +94,9 @@ episode_timesteps  = 0
 episode_num = 0
 # training loop
 state = env.reset()
+current_ep_reward = 0
 for time_step in range(int(max_training_timesteps)):
     episode_timesteps += 1
-    current_ep_reward = 0
     
     if time_step < 2e3:
         action = env.action_space.sample()
@@ -141,7 +141,7 @@ for time_step in range(int(max_training_timesteps)):
         print_avg_reward = print_running_reward / episode_num
         print_avg_reward = round(print_avg_reward, 2)
         # +1 to account for 0 indexing. +0 on ep_timesteps since it will increment +1 even if done=True
-        print(f"Total T: {time_step} Episode Num: {episode_num} Episode T: {episode_timesteps} Reward: {print_avg_reward:.3f}")
+        print(f"Total T: {time_step} Episode Num: {episode_num} Episode T: {episode_timesteps} Reward: {current_ep_reward:.3f}")
         # Reset environment
         current_ep_reward = 0
         episode_timesteps = 0
