@@ -15,7 +15,7 @@ opt = parser.parse_args()
 model_path=opt.version
 K_epochs = 80               # update policy for K epochs
 eps_clip = 0.2              # clip parameter for PPO
-gamma = 0.99                # discount factor
+gamma = 0.999                # discount factor
 
 lr_actor = 0.0003           # learning rate for actor
 lr_critic = 0.001           # learning rate for critic
@@ -128,8 +128,11 @@ print("=========================================================================
 # initialize a PPO agent
 ppo_agent = PPO(state_dim=19, action_dim=10, lr_actor = lr_actor, lr_critic = lr_critic, gamma = gamma, K_epochs = K_epochs, eps_clip = eps_clip, has_continuous_action_space = True, action_std_init=0.1)
 torch.load('agent/PPO_preTrained/Dronesimscape/PPO_Dronesimscape_0_0.pth')
-ppo_agent.load('agent/PPO_preTrained/Dronesimscape/PPO_Dronesimscape_0_0.pth')
-print("pretrained model loaded")
+try:
+    ppo_agent.load('agent/PPO_preTrained/Dronesimscape/PPO_Dronesimscape_0_0.pth')
+    print("pretrained model loaded")
+except:
+    pass
 
 # track total training time
 start_time = datetime.now().replace(microsecond=0)

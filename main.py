@@ -89,12 +89,16 @@ log_running_episodes = 0
 time_step = 0
 i_episode = 0
 action_dim = 10
-replay_buffer = ReplayBuffer(state_dim=19, action_dim=action_dim)
+replay_buffer_max = int(1e7)
+replay_buffer = ReplayBuffer(state_dim=19, action_dim=action_dim, max_size=replay_buffer_max)
+replay_max = replay_buffer_max
 episode_timesteps  = 0
 episode_num = 0
 # training loop
 state = env.reset()
 current_ep_reward = 0
+basic_batch_size = 2048
+basic_update_times = 40
 for time_step in range(int(max_training_timesteps)):
     episode_timesteps += 1
     
@@ -123,7 +127,13 @@ for time_step in range(int(max_training_timesteps)):
     # update PPO agent
     if time_step > 2.5e3:
         # print('training')
-        agent.train(replay_buffer, batch_size=2048)
+        replay_len = min(replay_buffer.ptr, replay_max)
+        k = 1 + replay_len / replay_max
+
+        batch_size   = int(k * basic_batch_size)
+        update_times = int(k * basic_update_times)
+        for i in range(update_times):
+            agent.train(replay_buffer, batch_size=batch_size)
         
     # save model weights
     if (time_step + 1) % save_model_freq == 0:

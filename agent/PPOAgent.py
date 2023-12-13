@@ -13,7 +13,7 @@ from torch.distributions import Categorical
 import numpy as np
 import math
 import gym
-# import roboschool
+from agent.network import DenseNet, ResNet
 
 
 ################################## set device ##################################
@@ -38,6 +38,44 @@ print("=========================================================================
 
 ################################## PPO Policy ##################################
 
+class ReplayBuffer(object):
+	def __init__(self, state_dim, action_dim, max_size=int(1e6)):
+		self.max_size = max_size
+		self.ptr = 0
+		self.size = 0
+
+		self.actions = np.zeros((max_size, action_dim))
+		self.states = np.zeros((max_size, state_dim))
+		self.logprobs = np.zeros((max_size, action_dim))
+		self.state_values = np.zeros((max_size, state_dim))
+		self.rewards = np.zeros((max_size, 1))
+		self.is_terminals = np.zeros((max_size, 1))
+
+		self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+
+	def add(self, state, action, logprob, state_value, reward, done):
+		self.states[self.ptr] = state
+		self.actions[self.ptr] = action
+		self.logprobs[self.ptr] = logprob
+		self.state_values[self.ptr] = state_value
+		self.rewards[self.ptr] = reward
+		self.is_terminals[self.ptr] = 1. - done
+
+		self.ptr = (self.ptr + 1) % self.max_size
+		self.size = min(self.size + 1, self.max_size)
+
+
+	def sample(self, batch_size):
+		ind = np.random.randint(0, self.size, size=batch_size)
+
+		return (
+			torch.FloatTensor(self.state[ind]).to(self.device),
+			torch.FloatTensor(self.action[ind]).to(self.device),
+			torch.FloatTensor(self.next_state[ind]).to(self.device),
+			torch.FloatTensor(self.reward[ind]).to(self.device),
+			torch.FloatTensor(self.not_done[ind]).to(self.device)
+		)
 
 class RolloutBuffer:
     def __init__(self):
@@ -56,7 +94,17 @@ class RolloutBuffer:
         del self.rewards[:]
         del self.state_values[:]
         del self.is_terminals[:]
-
+        
+    def sample(self, batch_size):
+        ind = np.random.randint(0, self.size, size=batch_size)
+        return (
+			torch.FloatTensor(self.actions[ind]).to(self.device),
+			torch.FloatTensor(self.states[ind]).to(self.device),
+			torch.FloatTensor(self.logprobs[ind]).to(self.device),
+			torch.FloatTensor(self.rewards[ind]).to(self.device),
+			torch.FloatTensor(self.state_values[ind]).to(self.device),
+			torch.FloatTensor(self.is_terminals[ind]).to(self.device)
+		)
 
 class ActorCritic(nn.Module):
     def __init__(self, state_dim, action_dim, has_continuous_action_space, action_std_init):
@@ -70,17 +118,31 @@ class ActorCritic(nn.Module):
 
         # actor
         if has_continuous_action_space :
+            # self.actor = DenseNet(state_dim, action_dim)
+            self.actor = ResNet(state_dim, action_dim)
+            # self.actor = nn.Sequential(
+            #                 nn.Linear(state_dim, 256),
+            #                 nn.Tanh(),
+            #                 nn.Linear(256, 256),
+            #                 nn.Tanh(),
+            #                 nn.Linear(256, 256),
+            #                 nn.Tanh(),
+            #                 nn.Linear(256, 256),
+            #                 nn.Tanh(),
+            #                 nn.Linear(256, 256),
+            #                 nn.Tanh(),
+            #                 nn.Linear(256, action_dim),
+            #                 nn.Tanh()
+            #             )
+        else:
             self.actor = nn.Sequential(
                             nn.Linear(state_dim, 256),
                             nn.Tanh(),
                             nn.Linear(256, 256),
                             nn.Tanh(),
-                            nn.Linear(256, action_dim),
-                            nn.Tanh()
-                        )
-        else:
-            self.actor = nn.Sequential(
-                            nn.Linear(state_dim, 256),
+                            nn.Linear(256, 256),
+                            nn.Tanh(),
+                            nn.Linear(256, 256),
                             nn.Tanh(),
                             nn.Linear(256, 256),
                             nn.Tanh(),
@@ -90,13 +152,21 @@ class ActorCritic(nn.Module):
 
         
         # critic
-        self.critic = nn.Sequential(
-                        nn.Linear(state_dim, 256),
-                        nn.Tanh(),
-                        nn.Linear(256, 256),
-                        nn.Tanh(),
-                        nn.Linear(256, 1)
-                    )
+        # self.critic = DenseNet(state_dim, 1)
+        self.critic = ResNet(state_dim, 1)
+        # self.critic = nn.Sequential(
+        #                 nn.Linear(state_dim, 256),
+        #                 nn.Tanh(),
+        #                 nn.Linear(256, 256),
+        #                 nn.Tanh(),
+        #                 nn.Linear(256, 256),
+        #                 nn.Tanh(),
+        #                 nn.Linear(256, 256),
+        #                 nn.Tanh(),
+        #                 nn.Linear(256, 256),
+        #                 nn.Tanh(),
+        #                 nn.Linear(256, 1)
+        #             )
         
     def set_action_std(self, new_action_std):
 
