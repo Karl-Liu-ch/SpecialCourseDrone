@@ -166,18 +166,19 @@ class Dronesimscape(SimulinkEnv):
 
         # Receive reward for every step inside state and time limits:
         # attitude control reward:
-        reward = - np.linalg.norm(omega)
+        reward = 10 - np.linalg.norm(omega) * 0.1
         # hold position reward:
         posereward = 0
-        posereward += 1 / (np.linalg.norm(self.desired_pose - pose) + 0.1)
+        posereward += - np.linalg.norm(self.desired_pose - pose) * 0.001
         # posereward += - np.linalg.norm(angular)
         # posereward += - np.linalg.norm(action[2:]) * 0.00001
         reward += posereward
         
-        if np.linalg.norm(self.desired_pose - pose) < 0.01:
-            reward += 100
-        else:
-            reward -= 100
+        if done:
+            if np.linalg.norm(self.desired_pose - pose) < 0.01:
+                reward += 10000
+            else:
+                reward -= 10000
 
         info = {"simulation time [s]": simulation_time}
 

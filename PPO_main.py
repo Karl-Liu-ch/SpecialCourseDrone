@@ -15,7 +15,7 @@ opt = parser.parse_args()
 model_path=opt.version
 K_epochs = 80               # update policy for K epochs
 eps_clip = 0.2              # clip parameter for PPO
-gamma = 0.999                # discount factor
+gamma = 0.995                # discount factor
 
 lr_actor = 0.0003           # learning rate for actor
 lr_critic = 0.001           # learning rate for critic
@@ -41,7 +41,6 @@ action_std = None
 update_timestep = max_ep_len * 4      # update policy every n timesteps
 K_epochs = 40               # update policy for K epochs
 eps_clip = 0.2              # clip parameter for PPO
-gamma = 0.99                # discount factor
 
 lr_actor = 0.0003       # learning rate for actor network
 lr_critic = 0.001       # learning rate for critic network
@@ -126,6 +125,7 @@ print("=========================================================================
 ################# training procedure ################
 
 # initialize a PPO agent
+state_dim = 19
 ppo_agent = PPO(state_dim=19, action_dim=10, lr_actor = lr_actor, lr_critic = lr_critic, gamma = gamma, K_epochs = K_epochs, eps_clip = eps_clip, has_continuous_action_space = True, action_std_init=0.1)
 torch.load('agent/PPO_preTrained/Dronesimscape/PPO_Dronesimscape_0_0.pth')
 try:
@@ -171,6 +171,11 @@ if random_seed:
     env.seed(random_seed)
     np.random.seed(random_seed)
 
+
+state_norm = Normalization(shape=state_dim)  # Trick 2:state normalization
+reward_norm = Normalization(shape=1)
+reward_scaling = RewardScaling(shape=1, gamma=gamma)
+
 # training loop
 while time_step <= max_training_timesteps:
     
@@ -184,10 +189,9 @@ while time_step <= max_training_timesteps:
         action = output2action(action)
         state, reward, done, _ = env.step(action)
         pose = np.array([state[3], state[5], state[7]])
-        if np.linalg.norm(env.desired_pose - pose) < 0.01:
-            done = 1
-        else:
-            done = 0
+        # state = state_norm(state)
+        # reward = reward_norm(reward)
+        # reward = reward_scaling(reward)
         
         # saving reward and is_terminals
         ppo_agent.buffer.rewards.append(reward)
@@ -209,7 +213,7 @@ while time_step <= max_training_timesteps:
 
             # log average reward till last episode
             log_avg_reward = log_running_reward / log_running_episodes
-            log_avg_reward = round(log_avg_reward, 4)
+            # log_avg_reward = round(log_avg_reward, 4)
 
 
             log_running_reward = 0
@@ -220,7 +224,7 @@ while time_step <= max_training_timesteps:
 
             # print average reward till last episode
             print_avg_reward = print_running_reward / print_running_episodes
-            print_avg_reward = round(print_avg_reward, 2)
+            # print_avg_reward = round(print_avg_reward, 2)
 
             print("Episode : {} \t\t Timestep : {} \t\t Average Reward : {}".format(i_episode, time_step, print_avg_reward))
 
