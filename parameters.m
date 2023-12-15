@@ -2,7 +2,7 @@ clear;
 clc;
 x_0 = 0;
 y_0 = 0;
-z_0 = 0.13;
+z_0 = 1;
 step_size = 0.001;
 timestep = step_size;
 max_prop = 1000;
@@ -53,6 +53,7 @@ M_bus = evalin('base', M_info.busName);
 route = [0 0 1 0.5*pi
         0 3 1 0.5*pi
         -3 3 1 0.5*pi
+        -3 4 1 0.5*pi
         -3 4 1 0
         3 4 1 0];
 save('parameters.mat');
