@@ -169,16 +169,16 @@ class Dronesimscape(SimulinkEnv):
         reward = 1 - np.linalg.norm(omega)
         # hold position reward:
         posereward = 0
-        posereward += 1 / (np.linalg.norm(self.desired_pose - pose) + 0.001)
+        posereward += 10 / (np.linalg.norm(self.desired_pose - pose) + 0.001)
         # posereward += - np.linalg.norm(angular)
         # posereward += - np.linalg.norm(action[2:]) * 0.00001
         reward += posereward
         
         if done:
             if np.linalg.norm(self.desired_pose - pose) < 0.01:
-                reward += 10000
+                reward += 5000
             else:
-                reward -= 10000
+                reward -= 5000
 
         info = {"simulation time [s]": simulation_time}
 
