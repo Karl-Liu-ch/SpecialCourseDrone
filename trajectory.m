@@ -18,7 +18,7 @@ acc_init = [0;0;0];
 Xdot = velocity_init; % initial velocity
 Xddot = acc_init; % initial acceleration
 
-waypoints = [2,2,1;0,4,1;-2,2,1];
+waypoints = [2,-2,1;0,-4,1;-2,-2,1];
 pin = struct('t',ts(1),'d',0,'X',Xs(:,1));
 pTraj.addPin(pin);
 pin = struct('t',ts(1),'d',1,'X',Xdot);
@@ -45,28 +45,28 @@ pTraj.solve;
 toc
 poly_traj= pTraj;
 
-% figh3 = figure(3); clf
-% figh4 = figure(4); clf
-% titleStr1 = sprintf('poly order : %d / max continuity: %d / ',order,maxConti);
-% titleStr2 = [' minimzed derivatives order: ', num2str(find(objWeights > 0))];
-% sgtitle(strcat(titleStr1,titleStr2))
-% set(figh3,'Position',[193 294 1473 610]);
-% plotOrder = 3; % Until 3rd order derivatives 
-% pTraj.showTraj(plotOrder,figh3) % plot element-wise trajectory 
-% pTraj.showPath(figh4)
-% view([-41 33])    
-% axis([-1 11 -6 10 0 8])    
-% %% Plot 
-% figuretitle = '7';
-% figh3 = figure(3); clf
-% figh4 = figure(4); clf
-% titleStr1 = sprintf('poly order : %d / max continuity: %d / ',order,maxConti);
-% titleStr2 = [' minimzed derivatives order: ', num2str(find(objWeights > 0))];
-% sgtitle(strcat(titleStr1,titleStr2))
-% set(figh3,'Position',[193 294 1473 610]);
-% plotOrder = 3; % Until 3rd order derivatives 
-% pTraj.showTraj(plotOrder,figh3) % plot element-wise trajectory 
-% pTraj.showPath(figh4)
-% view([-41 33])    
-% axis([-1 11 -6 10 0 8]) 
+figh3 = figure(3); clf
+figh4 = figure(4); clf
+titleStr1 = sprintf('poly order : %d / max continuity: %d / ',order,maxConti);
+titleStr2 = [' minimzed derivatives order: ', num2str(find(objWeights > 0))];
+sgtitle(strcat(titleStr1,titleStr2))
+set(figh3,'Position',[193 294 1473 610]);
+plotOrder = 3; % Until 3rd order derivatives 
+pTraj.showTraj(plotOrder,figh3) % plot element-wise trajectory 
+pTraj.showPath(figh4)
+view([-41 33])    
+axis([-1 11 -6 10 0 8])    
+%% Plot 
+figuretitle = '7';
+figh3 = figure(3); clf
+figh4 = figure(4); clf
+titleStr1 = sprintf('poly order : %d / max continuity: %d / ',order,maxConti);
+titleStr2 = [' minimzed derivatives order: ', num2str(find(objWeights > 0))];
+sgtitle(strcat(titleStr1,titleStr2))
+set(figh3,'Position',[193 294 1473 610]);
+plotOrder = 3; % Until 3rd order derivatives 
+pTraj.showTraj(plotOrder,figh3) % plot element-wise trajectory 
+pTraj.showPath(figh4)
+view([-41 33])    
+axis([-1 11 -6 10 0 8]) 
 clc
