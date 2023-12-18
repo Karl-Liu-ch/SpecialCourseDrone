@@ -18,7 +18,11 @@ from ControlAllocation import Network, AttnBlock
 
 class Net(Network):
     def forward(self, x):
-        B, C = x.shape
+        try:
+            B, C = x.shape
+        except:
+            x = x.unsqueeze(dim=0)
+            B, C = x.shape
         x = x.unsqueeze(dim=1).expand(B, C, C)
         x = self.net(x)
         x = x.mean(dim=1)
