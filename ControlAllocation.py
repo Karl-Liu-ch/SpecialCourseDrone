@@ -120,7 +120,7 @@ def train(params_path='agent/controlalocation/model.pth'):
         print('model loaded')
     except:
         print('model loading failed')
-    learning_rate = 1e-3
+    learning_rate = 1e-4
     std = torch.tensor([0.5, 0.5, 2, 5]).cuda()
     mean = torch.tensor([0, 0, 0, 20]).cuda()
     d_scale = 0.43/2.0

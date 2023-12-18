@@ -16,7 +16,15 @@ import gym
 from agent.network import DenseNet, ResNet
 from ControlAllocation import Network, AttnBlock
 
-class Net(Network):
+class Net(nn.Module):
+    def __init__(self, inchannels, outchannels, hiddensize = 64):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(inchannels, hiddensize), 
+            AttnBlock(hiddensize, 16, 2),
+            nn.Linear(hiddensize, outchannels), 
+            nn.Tanh()
+        )
     def forward(self, x):
         try:
             B, C = x.shape
@@ -130,7 +138,7 @@ class ActorCritic(nn.Module):
         # actor
         if has_continuous_action_space :
             # self.actor = DenseNet(state_dim, action_dim)
-            self.actor = Net(state_dim, action_dim)
+            self.actor = Net(inchannels=state_dim, outchannels=action_dim)
             # self.actor = nn.Sequential(
             #                 nn.Linear(state_dim, 256),
             #                 nn.Tanh(),
@@ -164,7 +172,7 @@ class ActorCritic(nn.Module):
         
         # critic
         # self.critic = DenseNet(state_dim, 1)
-        self.critic = Net(state_dim, 1)
+        self.critic = Net(inchannels=state_dim, outchannels=1)
         # self.critic = nn.Sequential(
         #                 nn.Linear(state_dim, 256),
         #                 nn.Tanh(),
@@ -434,3 +442,6 @@ class RewardScaling:
 
     def reset(self):  # When an episode is done,we should reset 'self.R'
         self.R = np.zeros(self.shape)
+        
+if __name__ == '__main__':
+    actor = Net(inchannels=19, outchannels=10)
