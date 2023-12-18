@@ -14,8 +14,15 @@ import numpy as np
 import math
 import gym
 from agent.network import DenseNet, ResNet
+from ControlAllocation import Network, AttnBlock
 
-
+class Net(Network):
+    def forward(self, x):
+        B, C = x.shape
+        x = x.unsqueeze(dim=1).expand(B, C, C)
+        x = self.net(x)
+        x = x.mean(dim=1)
+        return x
 ################################## set device ##################################
 
 print("============================================================================================")
@@ -119,7 +126,7 @@ class ActorCritic(nn.Module):
         # actor
         if has_continuous_action_space :
             # self.actor = DenseNet(state_dim, action_dim)
-            self.actor = ResNet(state_dim, action_dim)
+            self.actor = Net(state_dim, action_dim)
             # self.actor = nn.Sequential(
             #                 nn.Linear(state_dim, 256),
             #                 nn.Tanh(),
@@ -153,7 +160,7 @@ class ActorCritic(nn.Module):
         
         # critic
         # self.critic = DenseNet(state_dim, 1)
-        self.critic = ResNet(state_dim, 1)
+        self.critic = Net(state_dim, 1)
         # self.critic = nn.Sequential(
         #                 nn.Linear(state_dim, 256),
         #                 nn.Tanh(),

@@ -3,37 +3,97 @@ sys.path.append('/')
 import torch
 import torch.nn as nn
 import numpy as np
+from einops import rearrange, repeat
+from einops.layers.torch import Rearrange
+import torch.nn.functional as F
 
-class Linear(nn.Module):
-    def __init__(self, inchannels, outchannels):
+class FFN(nn.Module):
+    def __init__(self, inchannels, hiddensize):
         super().__init__()
-        self.D1 = nn.Linear(inchannels, outchannels)
-        nn.init.xavier_uniform_(self.D1.weight.data, 1.)
+        self.linear1 = nn.Linear(inchannels,hiddensize)
+        self.linear2 = nn.Linear(hiddensize,inchannels)
+        self.act = nn.ReLU()
     def forward(self, x):
-        return self.D1(x)
+        return self.linear2(self.act(self.linear1(x)))
     
-class Networt(nn.Module):
+class MultiHeadAttention(nn.Module):
+    def __init__(self, dim, n_heads):
+        super().__init__()
+        assert dim % n_heads == 0
+        self.dim = dim
+        self.num_heads = n_heads
+        self.heads_dim = dim // n_heads
+        self.to_q = nn.Linear(dim, dim, bias=False)
+        self.to_k = nn.Linear(dim, dim, bias=False)
+        self.to_v = nn.Linear(dim, dim, bias=False)
+        self.scale = nn.Parameter(torch.ones(n_heads, 1, 1))
+        self.to_out = nn.Sequential(
+            nn.Linear(dim, dim),
+        )
+        
+    def forward(self, x):
+        # x: [b, c, c]
+        b, n, c = x.shape
+        q_inp = self.to_q(x)
+        k_inp = self.to_k(x)
+        v_inp = self.to_v(x)
+        q, k, v = map(lambda t: rearrange(t, 'b n (h d) -> b h n d', h=self.num_heads),
+                                (q_inp, k_inp, v_inp))
+        v = v
+        q = q.transpose(-2, -1)
+        k = k.transpose(-2, -1)
+        v = v.transpose(-2, -1)
+        q = F.normalize(q, dim=-1, p=2)
+        k = F.normalize(k, dim=-1, p=2)
+        attn = (k @ q.transpose(-2, -1))   # A = K^T*Q
+        attn = attn * self.scale
+        attn = attn.softmax(dim=-1)
+        x = attn @ v   # b,heads,d,hw
+        x = x.view(b, n, c)
+        x = self.to_out(x)
+        return x
+        
+class AttnBlock(nn.Module):
+    def __init__(self, 
+            dim,
+            heads,
+            num_blocks,
+    ):
+        super().__init__()
+        self.blocks = nn.ModuleList([])
+        assert dim % heads == 0
+        for _ in range(num_blocks):
+            self.blocks.append(nn.ModuleList([
+                MultiHeadAttention(dim=dim, n_heads=heads),
+                FFN(dim, dim), 
+                nn.LayerNorm(dim)
+                ]))
+
+    def forward(self, x):
+        for (attn, ff, ln) in self.blocks:
+            x = ln(attn(x) + x)
+            x = ln(ff(x) + x)
+        out = x
+        return out
+
+class Network(nn.Module):
     def __init__(self, inchannels, outchannels, hiddensize = 256):
         super().__init__()
         self.net = nn.Sequential(
-            Linear(inchannels, hiddensize), 
-            nn.Tanh(), 
-            Linear(hiddensize, hiddensize*2), 
-            nn.Tanh(), 
-            Linear(hiddensize*2, hiddensize*4), 
-            nn.Tanh(), 
-            Linear(hiddensize*4, hiddensize*2), 
-            nn.Tanh(), 
-            Linear(hiddensize*2, hiddensize), 
-            nn.Tanh(), 
-            Linear(hiddensize, outchannels), 
+            nn.Linear(inchannels, hiddensize), 
+            AttnBlock(hiddensize, 16, 6),
+            nn.Linear(hiddensize, outchannels), 
             nn.Tanh()
         )
         
     def forward(self, x):
-        return (self.net(x) + 1.0) / 2.0
+        B, C = x.shape
+        x = x.unsqueeze(dim=1).expand(B, C, C)
+        x = self.net(x)
+        x = x.mean(dim=1)
+        return (x + 1.0) / 2.0
 
-BATCH = 2 ** 18
+BATCH = 2 ** 10
 max_prop = 1000
 coaxialeff = 450000/(max_prop**2)
 coefthrust = 5.7199 / (max_prop**2)
@@ -48,19 +108,19 @@ controlmatrix = np.array([[Lx*coefthrust, Lx*coefthrust, -Lx*coefthrust, -Lx*coe
     [coeftorque, -coeftorque, -coeftorque, coeftorque, coeftorque, -coeftorque, -coeftorque, coeftorque],
     [coefthrust,coefthrust,coefthrust,coefthrust,coefthrust,coefthrust,coefthrust,coefthrust]], dtype=np.float32)
 
-controlmatrix = torch.from_numpy(controlmatrix).cuda()
+# controlmatrix = torch.from_numpy(controlmatrix).cuda()
 # controlmatrix = controlmatrix.unsqueeze(dim=0).expand(BATCH, 4, 8)
-outstd = torch.tensor([max_prop ** 2, max_prop ** 2 / 2, max_prop ** 2 / 2, max_prop ** 2 / 2, max_prop ** 2 / 2, max_prop ** 2 / 2, max_prop ** 2 / 2, max_prop ** 2 / 2]).cuda()
+# outstd = torch.tensor([max_prop ** 2, max_prop ** 2 / 2, max_prop ** 2 / 2, max_prop ** 2 / 2, max_prop ** 2 / 2, max_prop ** 2 / 2, max_prop ** 2 / 2, max_prop ** 2 / 2]).cuda()
 # outmean = torch.tensor([max_prop ** 2 / 2, max_prop ** 2 / 2, max_prop ** 2 / 2, max_prop ** 2 / 2, max_prop ** 2 / 2, max_prop ** 2 / 2, max_prop ** 2 / 2, max_prop ** 2 / 2]).cuda()
 
 def train(params_path='agent/controlalocation/model.pth'):
-    model = Networt(6, 8).cuda()
+    model = Network(6, 8).cuda()
     try:
         model.load_state_dict(torch.load(params_path))
         print('model loaded')
     except:
         print('model loading failed')
-    learning_rate = 1e-4
+    learning_rate = 1e-3
     std = torch.tensor([0.5, 0.5, 2, 5]).cuda()
     mean = torch.tensor([0, 0, 0, 20]).cuda()
     d_scale = 0.43/2.0
@@ -131,7 +191,7 @@ def mixmatrix(Lx, Ly, Lz, k, b, d, alpha, BATCH):
     return controlmatrix
 
 def prediction(params_path, data):
-    model = Networt(6, 8).cuda()
+    model = Network(6, 8).cuda()
     model.load_state_dict(torch.load(params_path))
     model.eval()
     data = np.array(data)
