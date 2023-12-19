@@ -81,7 +81,6 @@ env = Dronesimscape(stop_time=10, step_size=0.001, timestep=0.001,
                     model_path = Path(__file__).parent.absolute().joinpath(model_path),
                     model_debug=False)
 
-state = env.reset()
 def output2action(action):
     action = action + np.array([(0.4+0.03)/2,0,1,1,1,1,1,1,1,1], dtype=np.float32)
     action = action * (np.array([0.43/2, math.pi/2, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000], dtype=np.float32))
@@ -91,8 +90,11 @@ def output2action(action):
 current_ep_reward = 0
 sim_time = []
 actions = []
+states =[]
 done = False
+state = env.reset()
 for t in range(1, max_ep_len+1):
+    states.append(state)
     action = ppo_agent.select_action(state)
     action = output2action(action)
     state, reward, done, _ = env.step(action)
