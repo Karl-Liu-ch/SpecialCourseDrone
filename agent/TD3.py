@@ -6,6 +6,28 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from agent.network import DenseNet, ResNet
+from ControlAllocation import AttnBlock
+
+
+class Net(nn.Module):
+    def __init__(self, inchannels, outchannels, hiddensize = 64):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(inchannels, hiddensize), 
+            AttnBlock(hiddensize, 16, 6),
+            nn.Linear(hiddensize, outchannels), 
+            nn.Tanh()
+        )
+    def forward(self, x):
+        try:
+            B, C = x.shape
+        except:
+            x = x.unsqueeze(dim=0)
+            B, C = x.shape
+        x = x.unsqueeze(dim=1).expand(B, C, C)
+        x = self.net(x)
+        x = x.mean(dim=1)
+        return x
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -56,7 +78,7 @@ class Actor(nn.Module):
 		self.l1 = nn.Linear(state_dim, 256)
 		self.l2 = nn.Linear(256, 256)
 		self.l3 = nn.Linear(256, action_dim)
-		self.net = ResNet(state_dim, action_dim)
+		self.net = Net(state_dim, action_dim)
 		self.max_action = max_action
 		
 
@@ -75,12 +97,12 @@ class Critic(nn.Module):
 		# self.l1 = nn.Linear(state_dim + action_dim, 256)
 		# self.l2 = nn.Linear(256, 256)
 		# self.l3 = nn.Linear(256, 1)
-		self.net1 = ResNet(state_dim + action_dim, 1)
+		self.net1 = Net(state_dim + action_dim, 1)
 		# Q2 architecture
 		# self.l4 = nn.Linear(state_dim + action_dim, 256)
 		# self.l5 = nn.Linear(256, 256)
 		# self.l6 = nn.Linear(256, 1)
-		self.net2 = ResNet(state_dim + action_dim, 1)
+		self.net2 = Net(state_dim + action_dim, 1)
 
 
 	def forward(self, state, action):

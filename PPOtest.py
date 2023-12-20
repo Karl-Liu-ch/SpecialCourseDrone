@@ -62,7 +62,7 @@ checkpoint_path = directory + "PPO_{}_{}_{}.pth".format(env_name, random_seed, 0
 print("save checkpoint path : " + checkpoint_path)
 # initialize a PPO agent
 state_dim = 19
-ppo_agent = PPO(state_dim=19, action_dim=10, lr_actor = lr_actor, lr_critic = lr_critic, gamma = gamma, K_epochs = K_epochs, eps_clip = eps_clip, has_continuous_action_space = True, action_std_init=0.0001)
+ppo_agent = PPO(state_dim=19, action_dim=10, lr_actor = lr_actor, lr_critic = lr_critic, gamma = gamma, K_epochs = K_epochs, eps_clip = eps_clip, has_continuous_action_space = True, action_std_init=0.001)
 torch.load('agent/PPO_preTrained/Dronesimscape/PPO_Dronesimscape_0_0.pth')
 ppo_agent.load('agent/PPO_preTrained/Dronesimscape/PPO_Dronesimscape_0_0.pth')
 print_running_reward = 0
@@ -100,6 +100,7 @@ for t in range(1, max_ep_len+1):
     state, reward, done, _ = env.step(action)
     current_ep_reward += reward
     if done:
+        print(t)
         break
 print(current_ep_reward)
 # Stop the current episode:
