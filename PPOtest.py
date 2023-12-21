@@ -8,6 +8,8 @@ from pathlib import Path
 import sys
 sys.path.append('./')
 import argparse
+import numpy as np
+
 parser = argparse.ArgumentParser(description="Matlab Simscape")
 parser.add_argument('--version', type=str, default='Dronesimscape.slx')
 opt = parser.parse_args()
@@ -100,9 +102,11 @@ for t in range(1, max_ep_len+1):
     state, reward, done, _ = env.step(action)
     current_ep_reward += reward
     if done:
-        print(t)
         break
 print(current_ep_reward)
+print(t)
+states = np.array(states)
+np.save('states.npy', states)
 # Stop the current episode:
 env.stop_simulation()
 
